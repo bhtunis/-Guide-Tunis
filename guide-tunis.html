@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+<style>
   :root{
- --sand:#F3E8D8;
+    --sand:#F3E8D8;
     --sand-deep:#E3D0BA;
     --paper:#FFF9F0;
     --ink:#33251F;
@@ -28,23 +29,35 @@
 
     --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
     --font-body:'Work Sans', -apple-system, 'Segoe UI', sans-serif;
-}
-  
- :root[data-theme="dark"]{
-  --sand:#3A2922;
-  --sand-deep:#4A352B;
-  --paper:#2B211D;
-  --ink:#F5EDE4;
-  --ink-soft:#CDBFB5;
+  }
 
-  --blue-deep:#8B5A3C;
-  --blue:#6B4030;
-  --blue-pale:#46362D;
+  :root[data-theme="dark"]{
+    --sand:#3A2922;
+    --sand-deep:#4A352B;
+    --paper:#2B211D;
+    --ink:#F5EDE4;
+    --ink-soft:#CDBFB5;
 
-  --clay:#C58A68;
-  --clay-deep:#D9A17F;
-  --line:rgba(245,237,228,0.14);
-  --shadow:0 8px 24px rgba(0,0,0,0.30);
+    --blue-deep:#8B5A3C;
+    --blue:#6B4030;
+    --blue-pale:#46362D;
+
+    --clay:#C58A68;
+    --clay-deep:#D9A17F;
+    --line:rgba(245,237,228,0.14);
+    --shadow:0 8px 24px rgba(0,0,0,0.30);
+  }
+
+  .tourism-logo{
+    display:block;
+    width:150px;
+    max-width:60%;
+    height:auto;
+    margin:0 auto 24px;
+    border-radius:12px;
+  }
+
+
 }
   
   @media (prefers-color-scheme: dark){
@@ -252,14 +265,20 @@ background:linear-gradient(180deg,#4A2C20 0%, #6B4030 100%);
     <button data-lang="ar" aria-pressed="false">ع</button>
   </div>
 </div>
-
 <div class="hero">
+
+  <img class="tourism-logo"
+       src="images/logo-tourisme-2027.jpg"
+       alt="Tunis Capitale du tourisme arabe 2027">
+
   <p class="eyebrow" id="heroEyebrow"></p>
   <h1 id="heroTitle" class="display"></h1>
   <p id="heroSubtitle"></p>
+
   <svg class="arches" viewBox="0 0 400 46" preserveAspectRatio="none">
     <path d="M0,46 L0,26 Q10,6 20,26 Q30,6 40,26 Q50,6 60,26 Q70,6 80,26 Q90,6 100,26 Q110,6 120,26 Q130,6 140,26 Q150,6 160,26 Q170,6 180,26 Q190,6 200,26 Q210,6 220,26 Q230,6 240,26 Q250,6 260,26 Q270,6 280,26 Q290,6 300,26 Q310,6 320,26 Q330,6 340,26 Q350,6 360,26 Q370,6 380,26 Q390,6 400,26 L400,46 Z"/>
   </svg>
+
 </div>
 
 <nav class="quicknav" id="quickNav"></nav>
