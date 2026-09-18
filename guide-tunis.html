@@ -748,21 +748,7 @@
     var main = document.getElementById('mainContent');
     main.innerHTML = '';
     D.sections.forEach(function(s, idx){
-var NAV_ICONS = {
-  medina: '📍',
-  carthage: '🏛️',
-  sidibou: '🌊',
-  marsa: '🌴',
-  gastronomie: '🍴',
-  shopping: '🛍️',
-  plages: '🏖️',
-  saisons: '☀️',
-  autour: '🗺️'
-};
-
-var icon = NAV_ICONS[s.id] || '📍';
-
-var a = el('a',{href:'#'+s.id}, icon + ' ' + s.title);
+var a = el('a',{href:'#'+s.id}, s.title);
       a.addEventListener('click', function(ev){
         ev.preventDefault();
         var target = document.getElementById(s.id);
