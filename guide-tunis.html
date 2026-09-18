@@ -4,977 +4,236 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Business Hotel Tunis — Guide de Tunis</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-
 <style>
+  :root{
+    --sand:#f2e9d6;
+    --sand-deep:#e8dbb9;
+    --paper:#fffcf5;
+    --ink:#241a12;
+    --ink-soft:#5c4936;
+    --blue-deep:#3b2415;
+    --blue:#8a5a34;
+    --blue-pale:#f1e6d3;
+    --clay:#c1752f;
+    --clay-deep:#8f5220;
+    --line: rgba(18,58,86,0.16);
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(18,42,58,0.08);
+    --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body:'Work Sans', -apple-system, 'Segoe UI', sans-serif;
+  }
+  :root[data-theme="dark"]{
+    --sand:#151d21;
+    --sand-deep:#1c262b;
+    --paper:#1a2226;
+    --ink:#eee7d6;
+    --ink-soft:#b8c2c6;
+    --blue-deep:#8fc2e4;
+    --blue:#6fa8cc;
+    --blue-pale:#22343d;
+    --clay:#e3855a;
+    --clay-deep:#f0a37c;
+    --line: rgba(238,231,214,0.14);
+    --shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --sand:#151d21;
+      --sand-deep:#1c262b;
+      --paper:#1a2226;
+      --ink:#eee7d6;
+      --ink-soft:#b8c2c6;
+      --blue-deep:#8fc2e4;
+      --blue:#6fa8cc;
+      --blue-pale:#22343d;
+      --clay:#e3855a;
+      --clay-deep:#f0a37c;
+      --line: rgba(238,231,214,0.14);
+      --shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  html[dir="rtl"] body{ font-family:'Tajawal', var(--font-body); }
+  h1,h2,h3, .display{ font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; }
+  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .display{
+    font-family:'Aref Ruqaa', 'Tajawal', serif; font-weight:700; letter-spacing:0;
+  }
+  a{ color:inherit; }
+  button{ font-family:inherit; }
 
-:root{
-  --sand:#F3E8D8;
-  --sand-deep:#E3D0BA;
-  --paper:#FFF9F0;
-  --ink:#33251F;
-  --ink-soft:#66544A;
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; padding:10px 16px;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .brand{ font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--blue-deep); white-space:nowrap; }
+  html[dir="rtl"] .topbar .brand{ font-family:'Aref Ruqaa', serif; font-size:1.05rem; }
+  .langswitch{ display:flex; gap:4px; background:var(--sand); border-radius:999px; padding:3px; }
+  .langswitch button{
+    border:none; background:transparent; padding:6px 10px; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:var(--ink-soft); cursor:pointer;
+  }
+  .langswitch button[aria-pressed="true"]{ background:var(--blue-deep); color:var(--paper); }
 
-  --blue-deep:#4A2C20;
-  --blue:#6B4030;
-  --blue-pale:#EDE0D2;
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg,var(--blue-deep) 0%, #1c1108 100%);
+    color:#f4efe1;
+    padding:38px 20px 64px;
+    overflow:hidden;
+  }
+  .hero .eyebrow{ font-size:0.78rem; letter-spacing:0.04em; color:#a9c9dd; margin:0 0 10px; }
+  .hero h1{ font-size:2.35rem; line-height:1.05; margin:0 0 10px; color:#fbf7ec; }
+  html[dir="rtl"] .hero h1{ font-size:2.1rem; line-height:1.3; }
+  .hero p{ max-width:34ch; font-size:0.98rem; color:#d7e4ea; margin:0; }
+  .hero .arches{ position:absolute; left:0; right:0; bottom:-2px; width:100%; height:46px; }
+  .hero .arches path{ fill:var(--sand); }
 
-  --clay:#A67C5B;
-  --clay-deep:#6B4030;
-
-  --line:rgba(74,44,32,0.16);
-  --radius:14px;
-  --shadow:0 8px 24px rgba(74,44,32,0.12);
-
-  --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:'Work Sans', -apple-system, 'Segoe UI', sans-serif;
-}
-
-:root[data-theme="dark"]{
-  --sand:#3A2922;
-  --sand-deep:#4A352B;
-  --paper:#2B211D;
-  --ink:#F5EDE4;
-  --ink-soft:#CDBFB5;
-
-  --blue-deep:#8B5A3C;
-  --blue:#6B4030;
-  --blue-pale:#46362D;
-
-  --clay:#C58A68;
-  --clay-deep:#D9A17F;
-
-  --line:rgba(245,237,228,0.14);
-  --shadow:0 8px 24px rgba(0,0,0,0.30);
-}
-
-/* ---------- LOGO TUNIS CAPITALE DU TOURISME ---------- */
-
-.tourism-logo{
-  display:block;
-  width:150px;
-  max-width:60%;
-  height:auto;
-  margin:0 auto 24px 0;
-  border-radius:12px;
-}
-
-/* ---------- DARK MODE ---------- */
-
-@media (prefers-color-scheme: dark){
-
-  :root:not([data-theme="light"]){
-
-    --sand:#3A2922;
-    --sand-deep:#4A352B;
-    --paper:#2B211D;
-    --ink:#F5EDE4;
-    --ink-soft:#CDBFB5;
-
-    --blue-deep:#8B5A3C;
-    --blue:#6B4030;
-    --blue-pale:#46362D;
-
-    --clay:#C58A68;
-    --clay-deep:#D9A17F;
-
-    --line:rgba(245,237,228,0.14);
-    --shadow:0 8px 24px rgba(0,0,0,0.30);
-
+  /* ---------- quick nav ---------- */
+  .quicknav{
+    display:flex; gap:8px; overflow-x:auto; padding:14px 16px 4px;
+    scrollbar-width:none;
+  }
+  .quicknav::-webkit-scrollbar{ display:none; }
+  .quicknav a{
+    flex:0 0 auto; text-decoration:none; font-size:0.82rem; font-weight:600;
+    color:var(--blue-deep); background:var(--paper); border:1px solid var(--line);
+    padding:8px 14px; border-radius:999px; white-space:nowrap;
   }
 
-}
-
-/* ---------- GENERAL ---------- */
-
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
-  margin:0;
-  padding:0;
-}
-
-body{
-  background:var(--sand);
-  color:var(--ink);
-  font-family:var(--font-body);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-html[dir="rtl"] body{
-  font-family:'Tajawal',var(--font-body);
-}
-
-h1,
-h2,
-h3,
-.display{
-  font-family:var(--font-display);
-  font-weight:600;
-  letter-spacing:-0.01em;
-}
-
-html[dir="rtl"] h1,
-html[dir="rtl"] h2,
-html[dir="rtl"] h3,
-html[dir="rtl"] .display{
-  font-family:'Aref Ruqaa','Tajawal',serif;
-  font-weight:700;
-  letter-spacing:0;
-}
-
-a{
-  color:inherit;
-}
-
-button{
-  font-family:inherit;
-}
-
-/* ---------- TOP BAR ---------- */
-
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:40;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
-  padding:10px 16px;
-
-  background:var(--paper);
-  border-bottom:1px solid var(--line);
-}
-
-.topbar .brand{
-  font-family:var(--font-display);
-  font-size:0.95rem;
-  font-weight:700;
-  color:var(--blue-deep);
-  white-space:nowrap;
-}
-
-html[dir="rtl"] .topbar .brand{
-  font-family:'Aref Ruqaa',serif;
-  font-size:1.05rem;
-}
-
-.langswitch{
-  display:flex;
-  gap:4px;
-  background:var(--sand);
-  border-radius:999px;
-  padding:3px;
-}
-
-.langswitch button{
-  border:none;
-  background:transparent;
-
-  padding:6px 10px;
-  border-radius:999px;
-
-  font-size:0.78rem;
-  font-weight:600;
-
-  color:var(--ink-soft);
-  cursor:pointer;
-}
-
-.langswitch button[aria-pressed="true"]{
-  background:var(--blue-deep);
-  color:var(--paper);
-}
-
-/* ---------- HERO ---------- */
-
-.hero{
-  position:relative;
-
-  background:linear-gradient(
-    180deg,
-    #4A2C20 0%,
-    #6B4030 100%
-  );
-
-  color:#f4efe1;
-
-  padding:38px 20px 64px;
-
-  overflow:hidden;
-}
-
-.hero .eyebrow{
-  font-size:0.78rem;
-  letter-spacing:0.04em;
-  color:#D9B89C;
-  margin:0 0 10px;
-}
-
-.hero h1{
-  font-size:2.35rem;
-  line-height:1.05;
-  margin:0 0 10px;
-  color:#fbf7ec;
-}
-
-html[dir="rtl"] .hero h1{
-  font-size:2.1rem;
-  line-height:1.3;
-}
-
-.hero p{
-  max-width:34ch;
-  font-size:0.98rem;
-  color:#E8D8CB;
-  margin:0;
-}
-
-.hero .arches{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-2px;
-
-  width:100%;
-  height:46px;
-}
-
-.hero .arches path{
-  fill:var(--sand);
-}
-
-/* ---------- QUICK NAV ---------- */
-
-.quicknav{
-  display:flex;
-  gap:8px;
-
-  overflow-x:auto;
-
-  padding:14px 16px 4px;
-
-  scrollbar-width:none;
-}
-
-.quicknav::-webkit-scrollbar{
-  display:none;
-}
-
-.quicknav a{
-  flex:0 0 auto;
-
-  text-decoration:none;
-
-  font-size:0.82rem;
-  font-weight:600;
-
-  color:var(--blue-deep);
-
-  background:var(--paper);
-
-  border:1px solid var(--line);
-
-  padding:8px 14px;
-
-  border-radius:999px;
-
-  white-space:nowrap;
-}
-
-/* ---------- SECTIONS ---------- */
-
-main{
-  padding:6px 16px 40px;
-  max-width:640px;
-  margin:0 auto;
-}
-
-.card-photo{
-  width:100%;
-  height:190px;
-
-  object-fit:cover;
-
-  display:block;
-
-  border-radius:12px;
-
-  margin-bottom:16px;
-}
-
-details.card{
-  background:var(--paper);
-
-  border:1px solid var(--line);
-
-  border-radius:var(--radius);
-
-  margin:14px 0;
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
-}
-
-details.card > summary{
-  list-style:none;
-  cursor:pointer;
-
-  padding:16px 18px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:12px;
-}
-
-details.card > summary::-webkit-details-marker{
-  display:none;
-}
-
-.summary-text .tag{
-  display:inline-block;
-
-  font-size:0.72rem;
-  font-weight:600;
-
-  color:var(--clay-deep);
-
-  background:color-mix(
-    in srgb,
-    var(--clay) 14%,
-    var(--paper)
-  );
-
-  padding:3px 9px;
-
-  border-radius:999px;
-
-  margin-bottom:6px;
-}
-
-.summary-text h2{
-  font-size:1.18rem;
-  margin:0;
-  color:var(--ink);
-}
-
-.chev{
-  flex:0 0 auto;
-
-  width:26px;
-  height:26px;
-
-  border-radius:50%;
-
-  border:1px solid var(--line);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  transition:transform .25s ease;
-
-  color:var(--blue-deep);
-}
-
-details[open] .chev{
-  transform:rotate(180deg);
-}
-
-.card-body{
-  padding:0 18px 18px;
-}
-
-.lead{
-  font-style:italic;
-
-  color:var(--ink-soft);
-
-  font-size:0.94rem;
-
-  margin:0 0 14px;
-}
-
-ul.highlights{
-  list-style:none;
-
-  margin:0 0 14px;
-  padding:0;
-
-  display:flex;
-  flex-direction:column;
-
-  gap:10px;
-}
-
-ul.highlights li{
-  display:flex;
-  align-items:flex-start;
-
-  gap:10px;
-
-  font-size:0.93rem;
-
-  padding:10px 12px;
-
-  background:var(--sand);
-
-  border-radius:10px;
-}
-
-ul.highlights li .dot{
-  flex:0 0 auto;
-
-  width:7px;
-  height:7px;
-
-  border-radius:50%;
-
-  background:var(--clay);
-
-  margin-top:7px;
-}
-
-ul.highlights li .htext{
-  flex:1 1 auto;
-}
-
-ul.highlights li .htext strong{
-  color:var(--blue-deep);
-}
-
-.pin{
-  flex:0 0 auto;
-
-  display:inline-flex;
-  align-items:center;
-
-  gap:4px;
-
-  text-decoration:none;
-
-  font-size:0.74rem;
-  font-weight:600;
-
-  color:var(--blue);
-
-  border:1px solid var(--line);
-
-  padding:5px 9px;
-
-  border-radius:999px;
-
-  white-space:nowrap;
-
-  margin-top:1px;
-}
-
-.pin svg{
-  width:12px;
-  height:12px;
-}
-
-.foot-row{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
-
-  flex-wrap:wrap;
-
-  border-top:1px dashed var(--line);
-
-  padding-top:12px;
-}
-
-.distance{
-  font-size:0.82rem;
-  color:var(--ink-soft);
-}
-
-.distance b{
-  color:var(--ink);
-  font-weight:600;
-}
-
-.btn-map{
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  text-decoration:none;
-
-  font-weight:700;
-
-  font-size:0.85rem;
-
-  color:#fff;
-
-  background:var(--clay);
-
-  padding:9px 16px;
-
-  border-radius:999px;
-
-  box-shadow:0 4px 12px rgba(184,85,44,0.3);
-}
-
-.btn-map svg{
-  width:14px;
-  height:14px;
-}
-
-/* ---------- SEASONS ---------- */
-
-.season-grid{
-  display:grid;
-
-  grid-template-columns:1fr;
-
-  gap:12px;
-
-  margin-bottom:14px;
-}
-
-.season{
-  background:var(--sand);
-
-  border-radius:10px;
-
-  padding:14px;
-}
-
-.season h3{
-  font-size:0.98rem;
-
-  margin:0 0 4px;
-
-  color:var(--blue-deep);
-}
-
-.season .when{
-  font-size:0.76rem;
-
-  color:var(--ink-soft);
-
-  margin:0 0 10px;
-}
-
-.season ul{
-  margin:0;
-  padding:0;
-
-  list-style:none;
-
-  display:flex;
-  flex-direction:column;
-
-  gap:8px;
-}
-
-.season li{
-  font-size:0.88rem;
-
-  display:flex;
-
-  gap:8px;
-}
-
-.season li .dot{
-  flex:0 0 auto;
-
-  width:6px;
-  height:6px;
-
-  margin-top:7px;
-
-  border-radius:50%;
-
-  background:var(--blue);
-}
-
-.callout{
-  background:var(--blue-pale);
-
-  border-radius:10px;
-
-  padding:12px 14px;
-
-  font-size:0.86rem;
-
-  color:var(--ink);
-}
-
-.callout b{
-  color:var(--blue-deep);
-}
-
-/* ---------- AROUND TUNIS ---------- */
-
-.dest-list{
-  display:flex;
-  flex-direction:column;
-
-  gap:10px;
-
-  margin-bottom:14px;
-}
-
-.dest{
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  background:var(--sand);
-
-  border-radius:10px;
-
-  padding:12px;
-}
-
-.dest .info{
-  flex:1 1 auto;
-}
-
-.dest .info .name{
-  font-weight:700;
-
-  font-size:0.92rem;
-
-  color:var(--ink);
-}
-
-.dest .info .desc{
-  font-size:0.82rem;
-
-  color:var(--ink-soft);
-
-  margin-top:2px;
-}
-
-.dest .time{
-  flex:0 0 auto;
-
-  font-size:0.72rem;
-
-  font-weight:700;
-
-  color:var(--clay-deep);
-
-  background:color-mix(
-    in srgb,
-    var(--clay) 14%,
-    var(--paper)
-  );
-
-  padding:3px 8px;
-
-  border-radius:999px;
-}
-
-.note-box{
-  border:1px solid var(--line);
-
-  border-radius:10px;
-
-  padding:14px;
-
-  margin-bottom:12px;
-}
-
-.note-box .lbl{
-  font-size:0.72rem;
-
-  font-weight:700;
-
-  color:var(--clay-deep);
-
-  margin-bottom:4px;
-}
-
-.note-box p{
-  margin:4px 0 0;
-
-  font-size:0.86rem;
-
-  color:var(--ink-soft);
-}
-
-.hotel-box{
-  display:flex;
-
-  gap:12px;
-
-  align-items:center;
-
-  background:var(--blue-pale);
-
-  border-radius:10px;
-
-  padding:14px;
-}
-
-.hotel-box .h-icon{
-  flex:0 0 auto;
-
-  width:34px;
-  height:34px;
-}
-
-.hotel-box .h-text b{
-  display:block;
-
-  font-size:0.88rem;
-
-  color:var(--blue-deep);
-}
-
-.hotel-box .h-text p{
-  margin:2px 0 0;
-
-  font-size:0.82rem;
-
-  color:var(--ink-soft);
-}
-
-/* ---------- PRACTICAL ---------- */
-
-.practical-cols{
-  display:grid;
-
-  grid-template-columns:1fr;
-
-  gap:16px;
-
-  margin-bottom:16px;
-}
-
-.col h3{
-  font-size:0.9rem;
-
-  margin:0 0 10px;
-
-  color:var(--blue-deep);
-}
-
-.col ul{
-  list-style:none;
-
-  margin:0;
-  padding:0;
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:8px;
-}
-
-.col li{
-  font-size:0.87rem;
-
-  display:flex;
-
-  gap:8px;
-
-  border-inline-start:2px solid var(--line);
-
-  padding-inline-start:9px;
-}
-
-/* ---------- CONTACT ---------- */
-
-.contact-card{
-  background:var(--blue-deep);
-
-  color:#f4efe1;
-
-  border-radius:var(--radius);
-
-  padding:20px;
-
-  margin-top:6px;
-}
-
-.contact-card p.thanks{
-  font-style:italic;
-
-  font-size:0.9rem;
-
-  color:#E8D8CB;
-
-  margin:0 0 16px;
-}
-
-.contact-line{
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  text-decoration:none;
-
-  color:#f4efe1;
-
-  padding:9px 0;
-
-  border-top:1px solid rgba(244,239,225,0.14);
-
-  font-size:0.88rem;
-}
-
-.contact-line:first-of-type{
-  border-top:none;
-}
-
-.contact-line svg{
-  flex:0 0 auto;
-
-  width:17px;
-  height:17px;
-
-  opacity:0.85;
-}
-
-.contact-map{
-  margin-top:14px;
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  background:var(--clay);
-
-  color:#fff;
-
-  text-decoration:none;
-
-  font-weight:700;
-
-  font-size:0.85rem;
-
-  padding:10px 18px;
-
-  border-radius:999px;
-}
-
-/* ---------- FOOTER ---------- */
-
-footer{
-  text-align:center;
-
-  padding:20px;
-
-  font-size:0.74rem;
-
-  color:var(--ink-soft);
-}
-
-/* ---------- TOC ---------- */
-
-.toc-title{
-  font-size:0.78rem;
-
-  font-weight:700;
-
-  letter-spacing:0.02em;
-
-  color:var(--ink-soft);
-
-  padding:14px 16px 0;
-}
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (min-width:560px){
-
-  .season-grid{
-    grid-template-columns:1fr 1fr;
+  /* ---------- sections ---------- */
+  main{ padding:6px 16px 40px; max-width:640px; margin:0 auto; }
+  details.card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    margin:14px 0; box-shadow:var(--shadow); overflow:hidden;
   }
-
-  .practical-cols{
-    grid-template-columns:1fr 1fr;
+  details.card > summary{
+    list-style:none; cursor:pointer; padding:16px 18px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
   }
+  details.card > summary::-webkit-details-marker{ display:none; }
+  .summary-text .tag{
+    display:inline-block; font-size:0.72rem; font-weight:600; color:var(--clay-deep);
+    background:color-mix(in srgb, var(--clay) 14%, var(--paper)); padding:3px 9px; border-radius:999px; margin-bottom:6px;
+  }
+  .summary-text h2{ font-size:1.18rem; margin:0; color:var(--ink); }
+  .chev{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; transition:transform .25s ease; color:var(--blue-deep); }
+  details[open] .chev{ transform:rotate(180deg); }
+  .card-body{ padding:0 18px 18px; }
+  .lead{ font-style:italic; color:var(--ink-soft); font-size:0.94rem; margin:0 0 14px; }
+  ul.highlights{ list-style:none; margin:0 0 14px; padding:0; display:flex; flex-direction:column; gap:10px; }
+  ul.highlights li{
+    display:flex; align-items:flex-start; gap:10px; font-size:0.93rem; padding:10px 12px;
+    background:var(--sand); border-radius:10px;
+  }
+  ul.highlights li .dot{ flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--clay); margin-top:7px; }
+  ul.highlights li .htext{ flex:1 1 auto; }
+  ul.highlights li .htext strong{ color:var(--blue-deep); }
+  .pin{
+    flex:0 0 auto; display:inline-flex; align-items:center; gap:4px; text-decoration:none;
+    font-size:0.74rem; font-weight:600; color:var(--blue); border:1px solid var(--line);
+    padding:5px 9px; border-radius:999px; white-space:nowrap; margin-top:1px;
+  }
+  .pin svg{ width:12px; height:12px; }
+  .foot-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    border-top:1px dashed var(--line); padding-top:12px; }
+  .distance{ font-size:0.82rem; color:var(--ink-soft); }
+  .distance b{ color:var(--ink); font-weight:600; }
+  .btn-map{
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-weight:700;
+    font-size:0.85rem; color:#fff; background:var(--clay); padding:9px 16px; border-radius:999px;
+    box-shadow:0 4px 12px rgba(193,117,47,0.3);
+  }
+  .btn-map svg{ width:14px; height:14px; }
 
-}
+  /* seasons */
+  .season-grid{ display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:14px; }
+  .season{ background:var(--sand); border-radius:10px; padding:14px; }
+  .season h3{ font-size:0.98rem; margin:0 0 4px; color:var(--blue-deep); }
+  .season .when{ font-size:0.76rem; color:var(--ink-soft); margin:0 0 10px; }
+  .season ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .season li{ font-size:0.88rem; display:flex; gap:8px; }
+  .season li .dot{ flex:0 0 auto; width:6px; height:6px; margin-top:7px; border-radius:50%; background:var(--blue); }
+  .callout{ background:var(--blue-pale); border-radius:10px; padding:12px 14px; font-size:0.86rem; color:var(--ink); }
+  .callout b{ color:var(--blue-deep); }
 
+  /* around tunis list */
+  .dest-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+  .dest{ display:flex; align-items:center; gap:12px; background:var(--sand); border-radius:10px; padding:12px; }
+  .dest .info{ flex:1 1 auto; }
+  .dest .info .name{ font-weight:700; font-size:0.92rem; color:var(--ink); }
+  .dest .info .desc{ font-size:0.82rem; color:var(--ink-soft); margin-top:2px; }
+  .dest .time{ flex:0 0 auto; font-size:0.72rem; font-weight:700; color:var(--clay-deep);
+    background:color-mix(in srgb, var(--clay) 14%, var(--paper)); padding:3px 8px; border-radius:999px; }
+  .note-box{ border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
+  .note-box .lbl{ font-size:0.72rem; font-weight:700; color:var(--clay-deep); margin-bottom:4px; }
+  .note-box p{ margin:4px 0 0; font-size:0.86rem; color:var(--ink-soft); }
+  .hotel-box{ display:flex; gap:12px; align-items:center; background:var(--blue-pale); border-radius:10px; padding:14px; }
+  .hotel-box .h-icon{ flex:0 0 auto; width:34px; height:34px; }
+  .hotel-box .h-text b{ display:block; font-size:0.88rem; color:var(--blue-deep); }
+  .hotel-box .h-text p{ margin:2px 0 0; font-size:0.82rem; color:var(--ink-soft); }
+
+  /* practical */
+  .practical-cols{ display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:16px; }
+  .col h3{ font-size:0.9rem; margin:0 0 10px; color:var(--blue-deep); }
+  .col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .col li{ font-size:0.87rem; display:flex; gap:8px; border-inline-start:2px solid var(--line); padding-inline-start:9px; }
+
+  .contact-card{ background:var(--blue-deep); color:#f4efe1; border-radius:var(--radius); padding:20px; margin-top:6px; }
+  .contact-card p.thanks{ font-style:italic; font-size:0.9rem; color:#dbe6ea; margin:0 0 16px; }
+  .contact-line{ display:flex; align-items:center; gap:10px; text-decoration:none; color:#f4efe1;
+    padding:9px 0; border-top:1px solid rgba(244,239,225,0.14); font-size:0.88rem; }
+  .contact-line:first-of-type{ border-top:none; }
+  .contact-line svg{ flex:0 0 auto; width:17px; height:17px; opacity:0.85; }
+  .contact-map{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; background:var(--clay);
+    color:#fff; text-decoration:none; font-weight:700; font-size:0.85rem; padding:10px 18px; border-radius:999px; }
+
+  footer{ text-align:center; padding:20px; font-size:0.74rem; color:var(--ink-soft); }
+
+  /* toc heading */
+  .toc-title{ font-size:0.78rem; font-weight:700; letter-spacing:0.02em; color:var(--ink-soft); padding:14px 16px 0; }
+
+  @media (min-width:560px){
+    .season-grid{ grid-template-columns:1fr 1fr; }
+    .practical-cols{ grid-template-columns:1fr 1fr; }
+  }
 </style>
 </head>
-
 <body>
 
 <div class="topbar">
-
-  <div class="brand" id="brandLabel">
-    Business Hotel Tunis
-  </div>
-
+  <div class="brand" id="brandLabel">Business Hotel Tunis</div>
   <div class="langswitch" role="group" aria-label="Langue">
-
-    <button data-lang="fr" aria-pressed="true">
-      FR
-    </button>
-
-    <button data-lang="en" aria-pressed="false">
-      EN
-    </button>
-
-    <button data-lang="ar" aria-pressed="false">
-      ع
-    </button>
-
+    <button data-lang="fr" aria-pressed="true">FR</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+    <button data-lang="ar" aria-pressed="false">ع</button>
   </div>
-
 </div>
 
 <div class="hero">
-
-  <img
-    class="tourism-logo"
-    src="images/logo-tourisme-2027.jpg"
-    alt="Tunis Capitale du tourisme arabe 2027"
-  >
-
   <p class="eyebrow" id="heroEyebrow"></p>
-
   <h1 id="heroTitle" class="display"></h1>
-
   <p id="heroSubtitle"></p>
-
-  <svg
-    class="arches"
-    viewBox="0 0 400 46"
-    preserveAspectRatio="none"
-  >
-
+  <svg class="arches" viewBox="0 0 400 46" preserveAspectRatio="none">
     <path d="M0,46 L0,26 Q10,6 20,26 Q30,6 40,26 Q50,6 60,26 Q70,6 80,26 Q90,6 100,26 Q110,6 120,26 Q130,6 140,26 Q150,6 160,26 Q170,6 180,26 Q190,6 200,26 Q210,6 220,26 Q230,6 240,26 Q250,6 260,26 Q270,6 280,26 Q290,6 300,26 Q310,6 320,26 Q330,6 340,26 Q350,6 360,26 Q370,6 380,26 Q390,6 400,26 L400,46 Z"/>
-
   </svg>
-
 </div>
 
 <nav class="quicknav" id="quickNav"></nav>
@@ -984,527 +243,500 @@ footer{
 <footer id="footerText"></footer>
 
 <script>
-
 (function(){
-
-  function mapsUrl(q){
-    return 'https://www.google.com/maps/search/?api=1&query='
-      + encodeURIComponent(q);
-  }
+  function mapsUrl(q){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q); }
 
   var ICONS = {
-
-    pin:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/>' +
-      '<circle cx="12" cy="10" r="2.4"/>' +
-      '</svg>',
-
-    chev:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<path d="M6 9l6 6 6-6"/>' +
-      '</svg>',
-
-    phone:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/>' +
-      '</svg>',
-
-    mail:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<rect x="2" y="4" width="20" height="16" rx="2"/>' +
-      '<path d="M2 6l10 7L22 6"/>' +
-      '</svg>',
-
-    clock:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<circle cx="12" cy="12" r="9"/>' +
-      '<path d="M12 7v5l3 3"/>' +
-      '</svg>',
-
-    home:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<path d="M3 11l9-7 9 7"/>' +
-      '<path d="M5 10v10h14V10"/>' +
-      '</svg>',
-
-    hotel:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-      '<rect x="4" y="3" width="16" height="18" rx="1"/>' +
-      '<path d="M9 21v-5h6v5M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/>' +
-      '</svg>'
-
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+    chev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>',
+    hotel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-5h6v5M9 8h.01M15 8h.01M9 12h.01M15 12h.01"/></svg>'
   };
 
   var LOC = {
-
-    medina:"Médina de Tunis",
-    zitouna:"Mosquée Ez-Zitouna Tunis",
-    bardo:"Musée du Bardo Tunis",
-
-    carthage:"Site archéologique de Carthage",
-    ports:"Ports puniques Carthage",
-    thermes:"Thermes d'Antonin Carthage",
-    cathedrale:"Cathédrale Saint-Louis Carthage",
-
-    sidibou:"Sidi Bou Saïd",
-    ennejma:"Palais Ennejma Ezzahra Sidi Bou Said",
-    nattes:"Café des Nattes Sidi Bou Said",
-    marina:"Marina Sidi Bou Said",
-
-    lamarsa:"La Marsa Tunis",
-    corniche:"Corniche La Marsa",
-    gammarth:"Gammarth Tunis",
-    gammrest:"Restaurants bord de mer Gammarth",
-
-    dareljeld:"Dar El Jeld Tunis",
-    onzieme:"L'Onzième Grill Tunis",
-
-    souks:"Souks Médina Tunis",
-    palmarium:"Palmarium Tunis",
-    citymall:"Tunis City Mall",
-
-    plagemarsa:"Plage La Marsa",
-    plagegammarth:"Plage Gammarth",
-    plageraoued:"Plage Raoued",
-
-    hammamet:"Hammamet Tunisie",
-    sousse:"Sousse Tunisie",
-    kairouan:"Kairouan Tunisie",
-    eljem:"Amphithéâtre El Jem",
-    djerba:"Djerba Tunisie",
-    sfax:"Sfax Tunisie",
-    bizerte:"Bizerte Tunisie",
-
+    medina:"Médina de Tunis", zitouna:"Mosquée Ez-Zitouna Tunis", bardo:"Musée du Bardo Tunis",
+    carthage:"Site archéologique de Carthage", ports:"Ports puniques Carthage", thermes:"Thermes d'Antonin Carthage", cathedrale:"Cathédrale Saint-Louis Carthage",
+    sidibou:"Sidi Bou Saïd", ennejma:"Palais Ennejma Ezzahra Sidi Bou Said", nattes:"Café des Nattes Sidi Bou Said", marina:"Marina Sidi Bou Said",
+    lamarsa:"La Marsa Tunis", corniche:"Corniche La Marsa", gammarth:"Gammarth Tunis", gammrest:"Restaurants bord de mer Gammarth",
+    dareljeld:"Dar El Jeld Tunis", onzieme:"L'Onzième Grill Tunis",
+    souks:"Souks Médina Tunis", palmarium:"Palmarium Tunis", citymall:"Tunis City Mall",
+    plagemarsa:"Plage La Marsa", plagegammarth:"Plage Gammarth", plageraoued:"Plage Raoued",
+    hammamet:"Hammamet Tunisie", sousse:"Sousse Tunisie", kairouan:"Kairouan Tunisie", eljem:"Amphithéâtre El Jem", djerba:"Djerba Tunisie", sfax:"Sfax Tunisie", bizerte:"Bizerte Tunisie",
     hotel:"Business Hotel Tunis, 4 Rue Ibn Nadim Montplaisir Tunis"
-
-  };
-
-  var PHOTOS = {
-
-    medina:"images/1-medina-zitouna.png",
-    carthage:"images/2-carthage.png",
-    sidibou:"images/3-sidi-bou-said.png"
-
-  };
-
-  var HOTEL_PHOTOS = {
-
-    tunis:"images/8-business-hotel-tunis.png",
-    sfax:"images/9-business-hotel-sfax.png"
-
   };
 
   var DATA = {
-
-    fr: {
-
-      dir:"ltr",
-
-      brand:"Business Hotel Tunis",
-
-      ui:{
-        toc:"Explorer le guide",
-        viewMap:"Voir",
-        directions:"Itinéraire",
-        distance:"Distance",
-        goodToKnow:"Bon à savoir",
-        getAround:"Se déplacer",
-        practicalInfo:"Informations pratiques",
-        reception:"Réception : disponible 24h/24 et 7j/7",
-        address:"Adresse",
-        phone:"Téléphone",
-        email:"Email",
-        locateHotel:"Localiser l'hôtel sur Google Maps",
-        footer:"Guide offert par Business Hotel Tunis — pensé pour être consulté sur votre téléphone."
-      },
-
-      hero:{
-        eyebrow:"Business Hotel — Centre-ville de Tunis",
-        title:"Tunis vous accueille",
-        subtitle:"Votre guide de la capitale — et de la Tunisie — offert par votre hôtel. Touchez une carte pour ouvrir l'itinéraire directement."
-      },
-
-      sections:[
-
-        {
-          id:"medina",
-          tag:"Patrimoine mondial UNESCO",
-          title:"La Médina & le Musée du Bardo",
-
-          lead:"À deux pas de l'hôtel : ruelles labyrinthiques, souks animés et monuments millénaires, classés UNESCO depuis 1979.",
-
-          items:[
-
-            {
-              t:"<strong>Mosquée Ez-Zitouna</strong> — fondée en 864, cœur spirituel de la médina.",
-              loc:"zitouna"
-            },
-
-            {
-              t:"<strong>Musée du Bardo</strong> — la plus riche collection de mosaïques romaines au monde.",
-              loc:"bardo"
-            },
-
-            {
-              t:"<strong>Les souks</strong> — parfums, chéchias, bijoux et cuivre, l'artisanat authentique.",
-              loc:"souks"
-            }
-
-          ],
-
-          distance:"5 à 10 min à pied depuis l'hôtel",
-          loc:"medina"
-
-        },
-
-        {
-          id:"carthage",
-          tag:"Patrimoine mondial UNESCO",
-          title:"Carthage antique",
-
-          lead:"Vestiges phéniciens, puniques et romains sur la colline de Byrsa, au cœur d'une des plus grandes cités de l'Antiquité.",
-
-          items:[
-
-            {
-              t:"<strong>Ports puniques</strong> — vestiges d'un port de guerre vieux de plus de 2 000 ans.",
-              loc:"ports"
-            },
-
-            {
-              t:"<strong>Thermes d'Antonin</strong> — les plus grands thermes romains d'Afrique.",
-              loc:"thermes"
-            },
-
-            {
-              t:"<strong>Cathédrale Saint-Louis</strong> — vue panoramique sur le golfe depuis Byrsa.",
-              loc:"cathedrale"
-            }
-
-          ],
-
-          distance:"20 à 25 min en voiture ou en TGM",
-          loc:"carthage"
-
-        },
-
-        {
-          id:"sidibou",
-          tag:"Le village bleu et blanc",
-          title:"Sidi Bou Saïd",
-
-          lead:"Un village de carte postale perché sur une falaise face à la baie de Carthage — volets bleus, façades blanches.",
-
-          items:[
-
-            {
-              t:"<strong>Palais Ennejma Ezzahra</strong> — ancienne demeure d'artiste, aujourd'hui centre de musique.",
-              loc:"ennejma"
-            },
-
-            {
-              t:"<strong>Café des Nattes</strong> — le rendez-vous mythique des Tunisois, narguilé et thé aux pignons.",
-              loc:"nattes"
-            },
-
-            {
-              t:"<strong>La Marina</strong> — port de plaisance face au Djebel Boukornine.",
-              loc:"marina"
-            }
-
-          ],
-
-          distance:"25 à 30 min en voiture ou en TGM",
-          loc:"sidibou"
-
-        },
-
-        {
-          id:"marsa",
-          tag:"Art de vivre côtier",
-          title:"La Marsa & Gammarth",
-
-          lead:"Plages, corniche animée et restaurants face à la mer — l'échappée préférée des Tunisois.",
-
-          items:[
-
-            {
-              t:"<strong>La Corniche</strong> — promenade en bord de mer, cafés et couchers de soleil.",
-              loc:"corniche"
-            },
-
-            {
-              t:"<strong>Gammarth</strong> — plages, hôtels de luxe et vie nocturne.",
-              loc:"gammarth"
-            },
-
-            {
-              t:"<strong>Tables de bord de mer</strong> — Le Golfe, Les Dunes, The Breeze : cuisine face à la Méditerranée.",
-              loc:"gammrest"
-            }
-
-          ],
-
-          distance:"30 à 40 min en voiture",
-          loc:"lamarsa"
-
-        },
-
-        {
-          id:"gastronomie",
-          tag:"Saveurs de Tunisie",
-          title:"Gastronomie tunisoise",
-
-          lead:"Épices, poissons et pâtisseries orientales, entre fondouks historiques et terrasses contemporaines.",
-
-          items:[
-
-            {
-              t:"<strong>À goûter</strong> — couscous, brick, ojja, mechouia et pâtisseries au miel."
-            },
-
-            {
-              t:"<strong>Dans la médina</strong> — Dar El Jeld, Fondouk El Attarine : cuisine tunisienne raffinée.",
-              loc:"dareljeld"
-            },
-
-            {
-              t:"<strong>Vue panoramique</strong> — L'Onzième Grill, pour dîner avec Tunis à vos pieds.",
-              loc:"onzieme"
-            }
-
-          ],
-
-          distance:"La plupart des adresses sont à moins de 15 min de l'hôtel"
-
-        },
-
-        {
-          id:"shopping",
-          tag:"Artisanat & modernité",
-          title:"Shopping à Tunis",
-
-          lead:"Du souk traditionnel aux centres commerciaux modernes, pour toutes les envies de shopping.",
-
-          items:[
-
-            {
-              t:"<strong>Les souks</strong> — tapis, cuivre, chéchias : artisanat authentique.",
-              loc:"souks"
-            },
-
-            {
-              t:"<strong>Le Palmarium</strong> — galerie historique sur l'avenue Habib Bourguiba, tout près de l'hôtel.",
-              loc:"palmarium"
-            },
-
-            {
-              t:"<strong>Tunis City Mall</strong> — l'un des principaux centres commerciaux de Tunis.",
-              loc:"citymall"
-            }
-
-          ],
-
-          distance:"Le Palmarium est à moins de 10 min à pied de l'hôtel"
-
-        },
-
-        {
-          id:"plages",
-          tag:"Entre mer & soleil",
-          title:"Les plages du Grand Tunis",
-
-          lead:"Sable fin et eaux calmes, à moins de 40 minutes de l'hôtel, sans quitter le Grand Tunis.",
-
-          items:[
-
-            {
-              t:"<strong>La Marsa</strong> — la plus proche et la plus animée.",
-              loc:"plagemarsa"
-            },
-
-            {
-              t:"<strong>Gammarth</strong> — plages larges et beach clubs.",
-              loc:"plagegammarth"
-            },
-
-            {
-              t:"<strong>Raoued</strong> — plage plus calme, à environ 40 min du centre.",
-              loc:"plageraoued"
-            }
-
-          ],
-
-          distance:"30 à 45 min en voiture"
-
-        },
-
-        {
-          id:"saisons",
-          tag:"Chaque saison a son charme",
-          title:"Tunis au fil des saisons",
-
-          lead:"Que vous visitiez la ville en plein été ou au cœur de l'hiver, Tunis se découvre à son propre rythme.",
-
-          special:"seasons",
-
-          summer:{
-            label:"Été",
-            when:"Juin à septembre",
-
-            items:[
-
-              "Plages & corniche — La Marsa, Gammarth et Raoued pour se rafraîchir en Méditerranée.",
-
-              "Soirées en terrasse — restaurants et rooftops animés tard, notamment à La Marsa.",
-
-              "Festivals d'été — concerts et spectacles à Carthage et Hammamet, de juin à août."
-
-            ]
-
-          },
-
-          winter:{
-            label:"Hiver",
-            when:"Décembre à février",
-
-            items:[
-
-              "Visites culturelles — Médina, Bardo et Carthage dans le calme, loin de la chaleur.",
-
-              "Douceur méditerranéenne — températures de 10 à 18°C, idéales pour marcher toute la journée.",
-
-              "Cafés & saveurs chaudes — thé à la menthe et pâtisseries dans les cafés de la médina ou Sidi Bou Saïd."
-
-            ]
-
-          },
-
-          good:"Été : jusqu'à 35°C, réservez vos tables en terrasse tôt. Hiver : 10 à 18°C, avec quelques averses possibles — une veste légère suffit."
-
-        },
-
-        {
-          id:"autour",
-          tag:"Tunis hors de la capitale",
-          title:"Autour de Tunis : découvrir la Tunisie",
-
-          lead:"Profitez de votre séjour pour découvrir au-delà de Tunis : villes historiques, plages et médinas souvent accessibles en quelques heures de route.",
-
-          special:"around",
-
-          dests:[
-
-            {
-              name:"Hammamet & Nabeul",
-              desc:"Station balnéaire réputée, médina fleurie et poterie traditionnelle.",
-              time:"~1h",
-              loc:"hammamet"
-            },
-
-            {
-              name:"Sousse & Monastir",
-              desc:"Front de mer animé, médina UNESCO et ribat historique.",
-              time:"~2h",
-              loc:"sousse"
-            },
-
-            {
-              name:"Kairouan",
-              desc:"Ville sainte de l'islam, Grande Mosquée et médina UNESCO.",
-              time:"~2h",
-              loc:"kairouan"
-            },
-
-            {
-              name:"El Jem",
-              desc:"Amphithéâtre romain, l'un des mieux conservés au monde.",
-              time:"~2h30",
-              loc:"eljem"
-            },
-
-            {
-              name:"Djerba",
-              desc:"Île des plages et villages blancs, en avion ou en voiture.",
-              time:"~1h en avion",
-              loc:"djerba"
-            },
-
-            {
-              name:"Sfax",
-              desc:"Ville portuaire, médina authentique et porte du Sud tunisien.",
-              time:"~2h30",
-              loc:"sfax"
-            },
-
-            {
-              name:"Bizerte & Cap Bon",
-              desc:"Vieux port, plages sauvages et vignobles du Cap Bon.",
-              time:"~1h",
-              loc:"bizerte"
-            }
-
-          ],
-
-          transferLbl:"Transferts & chauffeur privé",
-
-          transferText:"Notre hôtel organise vos déplacements sur demande ! Un chauffeur professionnel vous accompagne toute la journée, vous conseille et reste à votre entière disposition pour tous vos déplacements à Tunis et ses environs, ainsi que vers Sfax et différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
-
-          hotelBox:{
-            title:"Business Hotel Sfax",
-            text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis."
-          }
-
-        },
-
-        {
-          id:"pratique",
-          tag:"À savoir avant de partir",
-          title:"Informations pratiques",
-
-          lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.",
-
-          special:"practical",
-
-          getAround:[
-
-            "TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
-
-            "Taxi — nombreux et abordables, privilégiez le compteur.",
-
-            "Tramway & bus — centre-ville et quartiers périphériques.",
-
-            "Marche à pied — médina et avenue Bourguiba, depuis l'hôtel."
-
-          ],
-
-          goodToKnow:[
-
-            "Monnaie — dinar tunisien (TND).",
-
-            "Pourboire — 5 à 10 % dans restaurants et taxis.",
-
-            "Décalage horaire — GMT+1 toute l'année.",
-
-            "Langues — arabe et français ; anglais compris en zone touristique.",
-
-            "Jour de repos — nombreux commerces fermés le dimanche."
-
-          ],
-
-          thanks:"Merci de nous avoir fait confiance pour votre séjour. Toute notre équipe reste à votre écoute pour faire de votre passage à Tunis un moment inoubliable.",
-
-          address:"4 Rue Ibn Nadim, Montplaisir, 1073 Tunis.",
-
-          phone:"77 900 555 — 29 747 150",
-
-          email1:"resa@busineshoteltunis.com",
-
-          email2:"commercial@busineshoteltunis.com"
-
+  fr: {
+    dir:"ltr", brand:"Business Hotel Tunis",
+    ui:{ toc:"Explorer le guide", viewMap:"Voir", directions:"Itinéraire", distance:"Distance", goodToKnow:"Bon à savoir",
+         getAround:"Se déplacer", practicalInfo:"Informations pratiques", reception:"Réception : disponible 24h/24 et 7j/7",
+         address:"Adresse", phone:"Téléphone", email:"Email", locateHotel:"Localiser l'hôtel sur Google Maps",
+         footer:"Guide offert par Business Hotel Tunis — pensé pour être consulté sur votre téléphone." },
+    hero:{ eyebrow:"Business Hotel — Centre-ville de Tunis", title:"Tunis vous accueille", subtitle:"Votre guide de la capitale — et de la Tunisie — offert par votre hôtel. Touchez une carte pour ouvrir l'itinéraire directement." },
+    sections:[
+      {id:"medina", tag:"Patrimoine mondial UNESCO", title:"La Médina & le Musée du Bardo",
+        lead:"À deux pas de l'hôtel : ruelles labyrinthiques, souks animés et monuments millénaires, classés UNESCO depuis 1979.",
+        items:[
+          {t:"<strong>Mosquée Ez-Zitouna</strong> — fondée en 864, cœur spirituel de la médina.", loc:"zitouna"},
+          {t:"<strong>Musée du Bardo</strong> — la plus riche collection de mosaïques romaines au monde.", loc:"bardo"},
+          {t:"<strong>Les souks</strong> — parfums, chéchias, bijoux et cuivre, l'artisanat authentique.", loc:"souks"}
+        ], distance:"5 à 10 min à pied depuis l'hôtel", loc:"medina"},
+      {id:"carthage", tag:"Patrimoine mondial UNESCO", title:"Carthage antique",
+        lead:"Vestiges phéniciens, puniques et romains sur la colline de Byrsa, au cœur d'une des plus grandes cités de l'Antiquité.",
+        items:[
+          {t:"<strong>Ports puniques</strong> — vestiges d'un port de guerre vieux de plus de 2 000 ans.", loc:"ports"},
+          {t:"<strong>Thermes d'Antonin</strong> — les plus grands thermes romains d'Afrique.", loc:"thermes"},
+          {t:"<strong>Cathédrale Saint-Louis</strong> — vue panoramique sur le golfe depuis Byrsa.", loc:"cathedrale"}
+        ], distance:"20 à 25 min en voiture ou en TGM", loc:"carthage"},
+      {id:"sidibou", tag:"Le village bleu et blanc", title:"Sidi Bou Saïd",
+        lead:"Un village de carte postale perché sur une falaise face à la baie de Carthage — volets bleus, façades blanches.",
+        items:[
+          {t:"<strong>Palais Ennejma Ezzahra</strong> — ancienne demeure d'artiste, aujourd'hui centre de musique.", loc:"ennejma"},
+          {t:"<strong>Café des Nattes</strong> — le rendez-vous mythique des Tunisois, narguilé et thé aux pignons.", loc:"nattes"},
+          {t:"<strong>La Marina</strong> — port de plaisance face au Djebel Boukornine.", loc:"marina"}
+        ], distance:"25 à 30 min en voiture ou en TGM", loc:"sidibou"},
+      {id:"marsa", tag:"Art de vivre côtier", title:"La Marsa & Gammarth",
+        lead:"Plages, corniche animée et restaurants face à la mer — l'échappée préférée des Tunisois.",
+        items:[
+          {t:"<strong>La Corniche</strong> — promenade en bord de mer, cafés et couchers de soleil.", loc:"corniche"},
+          {t:"<strong>Gammarth</strong> — plages, hôtels de luxe et vie nocturne.", loc:"gammarth"},
+          {t:"<strong>Tables de bord de mer</strong> — Le Golfe, Les Dunes, The Breeze : cuisine face à la Méditerranée.", loc:"gammrest"}
+        ], distance:"30 à 40 min en voiture", loc:"lamarsa"},
+      {id:"gastronomie", tag:"Saveurs de Tunisie", title:"Gastronomie tunisoise",
+        lead:"Épices, poissons et pâtisseries orientales, entre fondouks historiques et terrasses contemporaines.",
+        items:[
+          {t:"<strong>À goûter</strong> — couscous, brik, ojja, méchouia et pâtisseries au miel."},
+          {t:"<strong>Dans la médina</strong> — Dar El Jeld, Fondouk El Attarine : cuisine traditionnelle raffinée.", loc:"dareljeld"},
+          {t:"<strong>Vue panoramique</strong> — L'Onzième Grill, pour dîner avec Tunis à ses pieds.", loc:"onzieme"}
+        ], distance:"La plupart des adresses à moins de 15 min de l'hôtel"},
+      {id:"shopping", tag:"Artisanat & modernité", title:"Shopping à Tunis",
+        lead:"Du souk traditionnel aux centres commerciaux modernes, toutes les envies de shopping.",
+        items:[
+          {t:"<strong>Les souks</strong> — tapis, cuivre, chéchias : l'artisanat authentique.", loc:"souks"},
+          {t:"<strong>Palmarium</strong> — galerie historique avenue Habib Bourguiba, tout près de l'hôtel.", loc:"palmarium"},
+          {t:"<strong>Tunis City Mall</strong> — le plus grand centre commercial de Tunisie.", loc:"citymall"}
+        ], distance:"Palmarium à moins de 10 min à pied de l'hôtel"},
+      {id:"plages", tag:"Entre mer et soleil", title:"Les plages du Grand Tunis",
+        lead:"Sable fin et eaux calmes, à moins de 40 minutes de l'hôtel, sans quitter l'agglomération.",
+        items:[
+          {t:"<strong>La Marsa</strong> — la plus proche et la plus animée.", loc:"plagemarsa"},
+          {t:"<strong>Gammarth</strong> — grandes plages et clubs balnéaires.", loc:"plagegammarth"},
+          {t:"<strong>Raoued</strong> — plage plus sauvage et plus calme, à environ 40 min du centre-ville.", loc:"plageraoued"}
+        ], distance:"30 à 45 min en voiture"},
+      {id:"saisons", tag:"À chaque saison son charme", title:"Tunis selon les saisons",
+        lead:"Que vous soyez là en plein été ou en plein hiver, Tunis se découvre à son propre rythme.", special:"seasons",
+        summer:{ label:"Été", when:"juin à septembre", items:[
+          "Plages & corniche — La Marsa, Gammarth et Raoued pour se rafraîchir face à la Méditerranée.",
+          "Soirées en terrasse — restaurants et rooftops animés jusque tard, surtout à La Marsa.",
+          "Festivals d'été — concerts et spectacles à Carthage et Hammamet, de juin à août."]},
+        winter:{ label:"Hiver", when:"décembre à février", items:[
+          "Visites culturelles — médina, Bardo et Carthage se visitent au calme, sans la chaleur.",
+          "Douceur méditerranéenne — climat doux, 10 à 18°C, idéal pour marcher toute la journée.",
+          "Cafés & saveurs chaudes — thé à la menthe et pâtisseries dans les cafés de la médina ou de Sidi Bou Saïd."]},
+        good:"Été : jusqu'à 35°C, réservez tôt vos tables en terrasse. Hiver : 10 à 18°C, quelques averses possibles — un pull suffit."},
+      {id:"autour", tag:"La Tunisie au-delà de la capitale", title:"Autour de Tunis : à la découverte de la Tunisie",
+        lead:"Profitez de votre séjour pour explorer au-delà de Tunis : villes historiques, plages et médinas ne sont souvent qu'à quelques heures de route.", special:"around",
+        dests:[
+          {name:"Hammamet & Nabeul", desc:"Station balnéaire réputée, médina fleurie et poterie artisanale.", time:"~1h", loc:"hammamet"},
+          {name:"Sousse & Monastir", desc:"Front de mer animé, médina classée UNESCO et ribat historique.", time:"~2h", loc:"sousse"},
+          {name:"Kairouan", desc:"Ville sainte de l'islam, Grande Mosquée et médina UNESCO.", time:"~2h", loc:"kairouan"},
+          {name:"El Jem", desc:"Amphithéâtre romain, l'un des mieux conservés au monde.", time:"~2h30", loc:"eljem"},
+          {name:"Djerba", desc:"Île aux plages et villages blancs, en avion ou en voiture.", time:"~1h avion", loc:"djerba"},
+          {name:"Sfax", desc:"Cité portuaire, médina authentique et porte vers le sud tunisien.", time:"~2h30", loc:"sfax"},
+          {name:"Bizerte & Cap Bon", desc:"Vieux port, plages sauvages et vignobles du Cap Bon.", time:"~1h", loc:"bizerte"}
+        ],
+        transferLbl:"Transferts & chauffeur privé",
+        transferText:"Notre hôtel organise vos transferts sur mesure ! Un chauffeur professionnel vous accompagne tout au long de votre journée, vous guide et reste à votre entière disposition pour l'ensemble de vos déplacements à Tunis et dans ses environs, ainsi que vers Sfax et les différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
+        hotelBox:{ title:"Business Hotel Sfax", text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis." }},
+      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
+        lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.", special:"practical",
+        getAround:["TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
+          "Taxi — nombreux et abordables, privilégiez le compteur.",
+          "Tramway & bus — centre-ville et quartiers périphériques.",
+          "Marche à pied — médina et avenue Bourguiba, depuis l'hôtel."],
+        goodToKnow:["Monnaie — dinar tunisien (TND).",
+          "Pourboire — 5 à 10 % dans restaurants et taxis.",
+          "Décalage horaire — GMT+1 toute l'année.",
+          "Langues — arabe et français ; anglais compris en zone touristique.",
+          "Jour de repos — nombreux commerces fermés le dimanche."],
+        thanks:"Merci de nous avoir fait confiance pour votre séjour. Toute notre équipe reste à votre écoute pour faire de votre passage à Tunis un moment inoubliable.",
+        address:"4 Rue Ibn Nadim, Montplaisir, 1073 Tunis.", phone:"77 900 555 — 29 747 150",
+        email1:"resa@busineshoteltunis.com", email2:"commercial@busineshoteltunis.com"}
+    ]
+  },
+
+  en: {
+    dir:"ltr", brand:"Business Hotel Tunis",
+    ui:{ toc:"Explore the guide", viewMap:"View", directions:"Directions", distance:"Distance", goodToKnow:"Good to know",
+         getAround:"Getting around", practicalInfo:"Practical information", reception:"Reception: available 24/7",
+         address:"Address", phone:"Phone", email:"Email", locateHotel:"Locate the hotel on Google Maps",
+         footer:"Guide provided by Business Hotel Tunis — designed to be read on your phone." },
+    hero:{ eyebrow:"Business Hotel — Downtown Tunis", title:"Welcome to Tunis", subtitle:"Your guide to the capital — and to Tunisia — brought to you by your hotel. Tap a map link to open directions instantly." },
+    sections:[
+      {id:"medina", tag:"UNESCO World Heritage", title:"The Medina & the Bardo Museum",
+        lead:"Just steps from the hotel: labyrinthine lanes, lively souks and centuries-old monuments, UNESCO-listed since 1979.",
+        items:[
+          {t:"<strong>Ez-Zitouna Mosque</strong> — founded in 864, the spiritual heart of the medina.", loc:"zitouna"},
+          {t:"<strong>The Bardo Museum</strong> — the world's richest collection of Roman mosaics.", loc:"bardo"},
+          {t:"<strong>The souks</strong> — perfumes, chechias, jewelry and copperware, authentic craftsmanship.", loc:"souks"}
+        ], distance:"5–10 min on foot from the hotel", loc:"medina"},
+      {id:"carthage", tag:"UNESCO World Heritage", title:"Ancient Carthage",
+        lead:"Phoenician, Punic and Roman remains on Byrsa Hill, at the heart of one of antiquity's greatest cities.",
+        items:[
+          {t:"<strong>Punic ports</strong> — remnants of a 2,000-year-old military harbor.", loc:"ports"},
+          {t:"<strong>Antonine Baths</strong> — the largest Roman baths in Africa.", loc:"thermes"},
+          {t:"<strong>Saint Louis Cathedral</strong> — panoramic views over the gulf from Byrsa Hill.", loc:"cathedrale"}
+        ], distance:"20–25 min by car or TGM train", loc:"carthage"},
+      {id:"sidibou", tag:"The blue-and-white village", title:"Sidi Bou Saïd",
+        lead:"A postcard village perched on a cliff overlooking the Bay of Carthage — blue shutters, white façades.",
+        items:[
+          {t:"<strong>Ennejma Ezzahra Palace</strong> — a former artist's residence, now a music center.", loc:"ennejma"},
+          {t:"<strong>Café des Nattes</strong> — the legendary Tunisian meeting spot, for shisha and pine-nut tea.", loc:"nattes"},
+          {t:"<strong>The Marina</strong> — a pleasure port facing Djebel Boukornine.", loc:"marina"}
+        ], distance:"25–30 min by car or TGM", loc:"sidibou"},
+      {id:"marsa", tag:"Coastal living", title:"La Marsa & Gammarth",
+        lead:"Beaches, a lively seafront promenade and restaurants by the sea — Tunisians' favorite getaway.",
+        items:[
+          {t:"<strong>The Corniche</strong> — a seaside promenade, cafés and sunsets.", loc:"corniche"},
+          {t:"<strong>Gammarth</strong> — beaches, luxury hotels and nightlife.", loc:"gammarth"},
+          {t:"<strong>Seafront tables</strong> — Le Golfe, Les Dunes, The Breeze: Mediterranean dining.", loc:"gammrest"}
+        ], distance:"30–40 min by car", loc:"lamarsa"},
+      {id:"gastronomie", tag:"Flavors of Tunisia", title:"Tunisian Gastronomy",
+        lead:"Spices, seafood and oriental pastries, between historic fondouks and contemporary terraces.",
+        items:[
+          {t:"<strong>To try</strong> — couscous, brik, ojja, méchouia and honey pastries."},
+          {t:"<strong>In the medina</strong> — Dar El Jeld, Fondouk El Attarine: refined traditional cuisine.", loc:"dareljeld"},
+          {t:"<strong>Panoramic views</strong> — L'Onzième Grill, dinner with all of Tunis at your feet.", loc:"onzieme"}
+        ], distance:"Most addresses within 15 min of the hotel"},
+      {id:"shopping", tag:"Craft & modernity", title:"Shopping in Tunis",
+        lead:"From traditional souks to modern malls, every kind of shopping.",
+        items:[
+          {t:"<strong>The souks</strong> — carpets, copperware, chechias: authentic craftsmanship.", loc:"souks"},
+          {t:"<strong>Palmarium</strong> — a historic gallery on Avenue Habib Bourguiba, right by the hotel.", loc:"palmarium"},
+          {t:"<strong>Tunis City Mall</strong> — Tunisia's largest shopping center.", loc:"citymall"}
+        ], distance:"Palmarium under 10 min on foot from the hotel"},
+      {id:"plages", tag:"Sea and sun", title:"Beaches of Greater Tunis",
+        lead:"Fine sand and calm waters, less than 40 minutes from the hotel, without leaving the city.",
+        items:[
+          {t:"<strong>La Marsa</strong> — the closest and liveliest.", loc:"plagemarsa"},
+          {t:"<strong>Gammarth</strong> — large beaches and beach clubs.", loc:"plagegammarth"},
+          {t:"<strong>Raoued</strong> — a wilder, quieter beach, about 40 min from downtown.", loc:"plageraoued"}
+        ], distance:"30–45 min by car"},
+      {id:"saisons", tag:"Every season has its charm", title:"Tunis Through the Seasons",
+        lead:"Whether you visit in high summer or deep winter, Tunis reveals itself at its own pace.", special:"seasons",
+        summer:{ label:"Summer", when:"June to September", items:[
+          "Beaches & seafront — La Marsa, Gammarth and Raoued to cool off by the Mediterranean.",
+          "Terrace evenings — restaurants and rooftops buzzing late, especially in La Marsa.",
+          "Summer festivals — concerts and shows in Carthage and Hammamet, June to August."]},
+        winter:{ label:"Winter", when:"December to February", items:[
+          "Cultural visits — the medina, Bardo and Carthage at their calmest, without the heat.",
+          "Mediterranean mildness — gentle climate, 10–18°C, ideal for walking all day.",
+          "Cafés & warm flavors — mint tea and pastries in the cafés of the medina or Sidi Bou Said."]},
+        good:"Summer: up to 35°C, book terrace tables early. Winter: 10–18°C, occasional showers — a light sweater is enough."},
+      {id:"autour", tag:"Tunisia beyond the capital", title:"Beyond Tunis: Discovering Tunisia",
+        lead:"Make the most of your stay to explore beyond Tunis: historic towns, beaches and medinas are often just a few hours away.", special:"around",
+        dests:[
+          {name:"Hammamet & Nabeul", desc:"Well-known seaside resort, flower-filled medina and traditional pottery.", time:"~1h", loc:"hammamet"},
+          {name:"Sousse & Monastir", desc:"Lively seafront, UNESCO-listed medina and historic ribat.", time:"~2h", loc:"sousse"},
+          {name:"Kairouan", desc:"A holy city of Islam, the Great Mosque and UNESCO medina.", time:"~2h", loc:"kairouan"},
+          {name:"El Jem", desc:"A Roman amphitheater, one of the best-preserved in the world.", time:"~2h30", loc:"eljem"},
+          {name:"Djerba", desc:"An island of beaches and whitewashed villages, by plane or car.", time:"~1h by air", loc:"djerba"},
+          {name:"Sfax", desc:"A port city, an authentic medina and gateway to southern Tunisia.", time:"~2h30", loc:"sfax"},
+          {name:"Bizerte & Cap Bon", desc:"An old harbor, wild beaches and Cap Bon vineyards.", time:"~1h", loc:"bizerte"}
+        ],
+        transferLbl:"Transfers & private driver",
+        transferText:"Our hotel arranges tailor-made transfers! A professional driver accompanies you throughout your day, guides you, and remains fully at your disposal for all your travel around Tunis and its surroundings, as well as to Sfax and the different regions of southern Tunisia. Comfort, flexibility and peace of mind: we take care of getting you there.",
+        hotelBox:{ title:"Business Hotel Sfax", text:"Extending your trip south? Our second address, Business Hotel Sfax, welcomes you with the same spirit and level of comfort. ~2h30 drive from Tunis." }},
+      {id:"pratique", tag:"Before you head out", title:"Practical Information",
+        lead:"Our reception team is available 24/7 for any question, taxi booking or excursion.", special:"practical",
+        getAround:["TGM — links Tunis Marine to Carthage, Sidi Bou Said and La Marsa.",
+          "Taxi — plentiful and affordable; always ask for the meter.",
+          "Tram & bus — downtown and outlying districts.",
+          "On foot — the medina and Avenue Bourguiba, right from the hotel."],
+        goodToKnow:["Currency — Tunisian dinar (TND).",
+          "Tipping — 5–10% in restaurants and taxis.",
+          "Time zone — GMT+1 year-round.",
+          "Languages — Arabic and French; English understood in tourist areas.",
+          "Rest day — many shops close on Sundays."],
+        thanks:"Thank you for choosing us for your stay. Our whole team is here for you, to make your time in Tunis unforgettable.",
+        address:"4 Rue Ibn Nadim, Montplaisir, 1073 Tunis.", phone:"77 900 555 — 29 747 150",
+        email1:"resa@busineshoteltunis.com", email2:"commercial@busineshoteltunis.com"}
+    ]
+  },
+
+  ar: {
+    dir:"rtl", brand:"بيزنس هوتيل تونس",
+    ui:{ toc:"استكشفوا الدليل", viewMap:"عرض", directions:"الاتجاهات", distance:"المسافة", goodToKnow:"معلومات مفيدة",
+         getAround:"التنقل", practicalInfo:"معلومات عملية", reception:"الاستقبال: متوفر على مدار الساعة",
+         address:"العنوان", phone:"الهاتف", email:"البريد الإلكتروني", locateHotel:"تحديد موقع الفندق على خرائط غوغل",
+         footer:"دليل مُقدَّم من بيزنس هوتيل تونس — مصمَّم للقراءة من هاتفكم." },
+    hero:{ eyebrow:"بيزنس هوتيل — وسط مدينة تونس", title:"تونس ترحب بكم", subtitle:"دليلكم إلى العاصمة — وإلى تونس — بإهداء من فندقكم. اضغطوا على أي رابط خريطة لفتح الاتجاهات مباشرة." },
+    sections:[
+      {id:"medina", tag:"تراث عالمي لليونسكو", title:"المدينة العتيقة ومتحف باردو",
+        lead:"على بعد خطوات من الفندق: أزقة متاهية، أسواق نابضة بالحياة، ومعالم عمرها قرون، مصنّفة تراثًا عالميًا منذ 1979.",
+        items:[
+          {t:"<strong>جامع الزيتونة</strong> — تأسس سنة 864، وهو القلب الروحي للمدينة العتيقة.", loc:"zitouna"},
+          {t:"<strong>متحف باردو</strong> — أغنى مجموعة فسيفساء رومانية في العالم.", loc:"bardo"},
+          {t:"<strong>الأسواق</strong> — عطور، شاشية، مجوهرات ونحاس، حرف تقليدية أصيلة.", loc:"souks"}
+        ], distance:"5 إلى 10 دقائق سيرًا على الأقدام من الفندق", loc:"medina"},
+      {id:"carthage", tag:"تراث عالمي لليونسكو", title:"قرطاج الأثرية",
+        lead:"آثار فينيقية وبونيقية ورومانية فوق تلة بيرصا، في قلب إحدى أعظم مدن العالم القديم.",
+        items:[
+          {t:"<strong>الموانئ البونيقية</strong> — بقايا ميناء حربي يعود إلى أكثر من 2000 عام.", loc:"ports"},
+          {t:"<strong>حمامات أنطونيوس</strong> — أكبر الحمامات الرومانية في أفريقيا.", loc:"thermes"},
+          {t:"<strong>كاتدرائية سان لويس</strong> — إطلالة بانورامية على الخليج من تلة بيرصا.", loc:"cathedrale"}
+        ], distance:"20 إلى 25 دقيقة بالسيارة أو بالقطار الخفيف TGM", loc:"carthage"},
+      {id:"sidibou", tag:"القرية الزرقاء والبيضاء", title:"سيدي بوسعيد",
+        lead:"قرية أشبه ببطاقة بريدية، مطلة على منحدر يواجه خليج قرطاج — نوافذ زرقاء وواجهات بيضاء.",
+        items:[
+          {t:"<strong>قصر النجمة الزهراء</strong> — مسكن فنان سابق، أصبح اليوم مركزًا للموسيقى.", loc:"ennejma"},
+          {t:"<strong>مقهى الحصير</strong> — الملتقى الأسطوري للتونسيين، للشيشة وشاي الصنوبر.", loc:"nattes"},
+          {t:"<strong>المرسى البحرية</strong> — ميناء ترفيهي يواجه جبل بوقرنين.", loc:"marina"}
+        ], distance:"25 إلى 30 دقيقة بالسيارة أو بالـ TGM", loc:"sidibou"},
+      {id:"marsa", tag:"فن العيش الساحلي", title:"المرسى وقمرت",
+        lead:"شواطئ، كورنيش نابض بالحياة، ومطاعم مطلة على البحر — الوجهة المفضلة للتونسيين.",
+        items:[
+          {t:"<strong>الكورنيش</strong> — ممشى على شاطئ البحر، مقاهٍ وغروب الشمس.", loc:"corniche"},
+          {t:"<strong>قمرت</strong> — شواطئ، فنادق فاخرة وحياة ليلية.", loc:"gammarth"},
+          {t:"<strong>موائد على شاطئ البحر</strong> — لو غولف، لي دون، ذا بريز: مأكولات تطل على البحر الأبيض المتوسط.", loc:"gammrest"}
+        ], distance:"30 إلى 40 دقيقة بالسيارة", loc:"lamarsa"},
+      {id:"gastronomie", tag:"نكهات تونس", title:"المطبخ التونسي",
+        lead:"بهارات، أسماك وحلويات شرقية، بين نُزل تاريخية وشرفات عصرية.",
+        items:[
+          {t:"<strong>لتذوقه</strong> — كسكسي، بريك، عجة، مشوية وحلويات بالعسل."},
+          {t:"<strong>داخل المدينة العتيقة</strong> — دار الجلد، فندق العطارين: مأكولات تقليدية راقية.", loc:"dareljeld"},
+          {t:"<strong>إطلالة بانورامية</strong> — مطعم L'Onzième Grill، لتناول العشاء وتونس بأكملها أمامكم.", loc:"onzieme"}
+        ], distance:"معظم العناوين على بعد أقل من 15 دقيقة من الفندق"},
+      {id:"shopping", tag:"حرف تقليدية وحداثة", title:"التسوق في تونس",
+        lead:"من السوق التقليدي إلى المراكز التجارية الحديثة، لكل رغبات التسوق.",
+        items:[
+          {t:"<strong>الأسواق</strong> — سجاد، نحاس، شاشية: حرف تقليدية أصيلة.", loc:"souks"},
+          {t:"<strong>بالماريوم</strong> — رواق تاريخي على شارع الحبيب بورقيبة، قريب جدًا من الفندق.", loc:"palmarium"},
+          {t:"<strong>تونس سيتي مول</strong> — أكبر مركز تجاري في تونس.", loc:"citymall"}
+        ], distance:"بالماريوم على بعد أقل من 10 دقائق سيرًا من الفندق"},
+      {id:"plages", tag:"بين البحر والشمس", title:"شواطئ تونس الكبرى",
+        lead:"رمال ناعمة ومياه هادئة، على بعد أقل من 40 دقيقة من الفندق، دون مغادرة المدينة.",
+        items:[
+          {t:"<strong>المرسى</strong> — الأقرب والأكثر حيوية.", loc:"plagemarsa"},
+          {t:"<strong>قمرت</strong> — شواطئ واسعة ونوادٍ شاطئية.", loc:"plagegammarth"},
+          {t:"<strong>الرواد</strong> — شاطئ أكثر هدوءًا، على بعد نحو 40 دقيقة من وسط المدينة.", loc:"plageraoued"}
+        ], distance:"30 إلى 45 دقيقة بالسيارة"},
+      {id:"saisons", tag:"لكل فصل سحره", title:"تونس عبر الفصول",
+        lead:"سواء زرتم المدينة في عز الصيف أو في قلب الشتاء، تكتشفون تونس على إيقاعها الخاص.", special:"seasons",
+        summer:{ label:"الصيف", when:"جوان إلى سبتمبر", items:[
+          "الشواطئ والكورنيش — المرسى، قمرت والرواد للانتعاش قرب البحر الأبيض المتوسط.",
+          "سهرات على الشرفات — مطاعم وأسطح مزدحمة حتى وقت متأخر، خصوصًا في المرسى.",
+          "مهرجانات الصيف — حفلات وعروض في قرطاج والحمامات، من جوان إلى أوت."]},
+        winter:{ label:"الشتاء", when:"ديسمبر إلى فيفري", items:[
+          "زيارات ثقافية — المدينة العتيقة، باردو وقرطاج في هدوئها، بعيدًا عن الحرارة.",
+          "اعتدال البحر الأبيض المتوسط — مناخ لطيف، من 10 إلى 18 درجة، مثالي للتجول طوال اليوم.",
+          "مقاهٍ ونكهات دافئة — شاي بالنعناع وحلويات في مقاهي المدينة العتيقة أو سيدي بوسعيد."]},
+        good:"الصيف: حتى 35 درجة، احجزوا طاولاتكم على الشرفات مبكرًا. الشتاء: من 10 إلى 18 درجة، مع احتمال زخات مطر خفيفة — سترة صوفية كافية."},
+      {id:"autour", tag:"تونس خارج العاصمة", title:"حول تونس: اكتشاف الجمهورية التونسية",
+        lead:"استغلوا إقامتكم لاكتشاف ما وراء تونس العاصمة: مدن تاريخية وشواطئ ومدن عتيقة غالبًا لا تبعد سوى ساعات قليلة بالطريق.", special:"around",
+        dests:[
+          {name:"الحمامات ونابل", desc:"منتجع ساحلي شهير، مدينة عتيقة مزهرة وفخار تقليدي.", time:"~ساعة", loc:"hammamet"},
+          {name:"سوسة والمنستير", desc:"واجهة بحرية نابضة، مدينة عتيقة مصنّفة يونسكو ورباط تاريخي.", time:"~ساعتان", loc:"sousse"},
+          {name:"القيروان", desc:"مدينة إسلامية مقدسة، الجامع الكبير ومدينة عتيقة يونسكو.", time:"~ساعتان", loc:"kairouan"},
+          {name:"الجم", desc:"مدرج روماني، من أفضل المدرجات المحفوظة في العالم.", time:"~ساعتان ونصف", loc:"eljem"},
+          {name:"جربة", desc:"جزيرة الشواطئ والقرى البيضاء، بالطائرة أو بالسيارة.", time:"~ساعة بالطائرة", loc:"djerba"},
+          {name:"صفاقس", desc:"مدينة ميناء، مدينة عتيقة أصيلة وبوابة الجنوب التونسي.", time:"~ساعتان ونصف", loc:"sfax"},
+          {name:"بنزرت والوطن القبلي", desc:"ميناء قديم، شواطئ برية وكروم عنب الوطن القبلي.", time:"~ساعة", loc:"bizerte"}
+        ],
+        transferLbl:"التنقلات وسائق خاص",
+        transferText:"فندقنا ينظم لكم تنقلاتكم حسب الطلب! يرافقكم سائق محترف طوال يومكم، يرشدكم ويبقى تحت تصرفكم الكامل لجميع تنقلاتكم في تونس وضواحيها، وكذلك نحو صفاقس ومختلف مناطق الجنوب التونسي. راحة، مرونة وطمأنينة: نحن نتكفل بتنقلاتكم.",
+        hotelBox:{ title:"بيزنس هوتيل صفاقس", text:"هل تمددون إقامتكم نحو الجنوب؟ عنواننا الثاني، بيزنس هوتيل صفاقس، يستقبلكم بنفس الروح ونفس مستوى الراحة. ~ساعتان ونصف بالطريق من تونس." }},
+      {id:"pratique", tag:"معلومات مفيدة قبل المغادرة", title:"معلومات عملية",
+        lead:"فريق الاستقبال لدينا في خدمتكم على مدار الساعة لأي استفسار أو حجز سيارة أجرة أو رحلة.", special:"practical",
+        getAround:["الـ TGM — يربط تونس البحر بقرطاج وسيدي بوسعيد والمرسى.",
+          "سيارات الأجرة — كثيرة وبأسعار معقولة، يُفضّل استعمال العدّاد.",
+          "الترامواي والحافلات — وسط المدينة والأحياء المحيطة.",
+          "المشي — المدينة العتيقة وشارع بورقيبة، انطلاقًا من الفندق."],
+        goodToKnow:["العملة — الدينار التونسي (TND).",
+          "الإكرامية — من 5 إلى 10% في المطاعم وسيارات الأجرة.",
+          "التوقيت — GMT+1 على مدار السنة.",
+          "اللغات — العربية والفرنسية، والإنجليزية مفهومة في المناطق السياحية.",
+          "يوم الراحة — العديد من المحلات مغلقة يوم الأحد."],
+        thanks:"شكرًا لثقتكم بنا خلال إقامتكم. فريقنا بأكمله في خدمتكم لجعل زيارتكم لتونس تجربة لا تُنسى.",
+        address:"4 نهج ابن نديم، المنتزه، 1073 تونس.", phone:"77 900 555 — 29 747 150",
+        email1:"resa@busineshoteltunis.com", email2:"commercial@busineshoteltunis.com"}
+    ]
+  }
+  };
+
+  var current = 'fr';
+  try{ var saved = window.localStorage.getItem('guideLang'); if(saved && DATA[saved]) current = saved; }catch(e){}
+
+  function el(tag, attrs, html){
+    var e = document.createElement(tag);
+    if(attrs) for(var k in attrs) e.setAttribute(k, attrs[k]);
+    if(html!=null) e.innerHTML = html;
+    return e;
+  }
+
+  function renderHighlightItem(it){
+    var li = document.createElement('li');
+    var dot = el('span',{class:'dot'});
+    var txt = el('span',{class:'htext'}, it.t);
+    li.appendChild(dot); li.appendChild(txt);
+    if(it.loc && LOC[it.loc]){
+      var a = el('a',{class:'pin', href:mapsUrl(LOC[it.loc]), target:'_blank', rel:'noopener'});
+      a.innerHTML = ICONS.pin + '<span>' + D.ui.viewMap + '</span>';
+      li.appendChild(a);
+    }
+    return li;
+  }
+
+  var D;
+
+  function renderSection(s){
+    var card = el('details',{class:'card', id:s.id});
+    var summary = el('summary');
+    var stext = el('div',{class:'summary-text'});
+    stext.innerHTML = '<span class="tag">'+s.tag+'</span><h2>'+s.title+'</h2>';
+    var chev = el('span',{class:'chev'}); chev.innerHTML = ICONS.chev;
+    summary.appendChild(stext); summary.appendChild(chev);
+    card.appendChild(summary);
+
+    var body = el('div',{class:'card-body'});
+    body.appendChild(el('p',{class:'lead'}, s.lead));
+
+    if(s.special === 'seasons'){
+      var grid = el('div',{class:'season-grid'});
+      [s.summer, s.winter].forEach(function(grp){
+        var box = el('div',{class:'season'});
+        box.innerHTML = '<h3>'+grp.label+'</h3><p class="when">'+grp.when+'</p>';
+        var ul = el('ul');
+        grp.items.forEach(function(txt){
+          var li = document.createElement('li');
+          li.innerHTML = '<span class="dot"></span><span>'+txt+'</span>';
+          ul.appendChild(li);
+        });
+        box.appendChild(ul);
+        grid.appendChild(box);
+      });
+      body.appendChild(grid);
+      body.appendChild(el('div',{class:'callout'}, '<b>'+D.ui.goodToKnow+'.</b> '+s.good));
+    } else if(s.special === 'around'){
+      var list = el('div',{class:'dest-list'});
+      s.dests.forEach(function(d){
+        var row = el('div',{class:'dest'});
+        var info = el('div',{class:'info'});
+        info.innerHTML = '<div class="name">'+d.name+'</div><div class="desc">'+d.desc+'</div>';
+        row.appendChild(info);
+        row.appendChild(el('span',{class:'time'}, d.time));
+        if(d.loc && LOC[d.loc]){
+          var a = el('a',{class:'pin', href:mapsUrl(LOC[d.loc]), target:'_blank', rel:'noopener'});
+          a.innerHTML = ICONS.pin;
+          row.appendChild(a);
         }
+        list.appendChild(row);
+      });
+      body.appendChild(list);
+      var note = el('div',{class:'note-box'});
+      note.innerHTML = '<div class="lbl">'+s.transferLbl+'</div><p>'+s.transferText+'</p>';
+      body.appendChild(note);
+      var hbox = el('div',{class:'hotel-box'});
+      var hicon = el('div',{class:'h-icon'}); hicon.innerHTML = ICONS.hotel;
+      var htext = el('div',{class:'h-text'});
+      htext.innerHTML = '<b>'+s.hotelBox.title+'</b><p>'+s.hotelBox.text+'</p>';
+      hbox.appendChild(hicon); hbox.appendChild(htext);
+      body.appendChild(hbox);
+    } else if(s.special === 'practical'){
+      var cols = el('div',{class:'practical-cols'});
+      var c1 = el('div',{class:'col'});
+      c1.innerHTML = '<h3>'+D.ui.getAround+'</h3>';
+      var u1 = el('ul');
+      s.getAround.forEach(function(t){ u1.appendChild(el('li',null,t)); });
+      c1.appendChild(u1);
+      var c2 = el('div',{class:'col'});
+      c2.innerHTML = '<h3>'+D.ui.goodToKnow+'</h3>';
+      var u2 = el('ul');
+      s.goodToKnow.forEach(function(t){ u2.appendChild(el('li',null,t)); });
+      c2.appendChild(u2);
+      cols.appendChild(c1); cols.appendChild(c2);
+      body.appendChild(cols);
 
-      ]
+      var contact = el('div',{class:'contact-card'});
+      var inner = '<p class="thanks">'+s.thanks+'</p>';
+      inner += '<div class="contact-line">'+ICONS.clock+'<span>'+D.ui.reception+'</span></div>';
+      inner += '<div class="contact-line">'+ICONS.home+'<span>'+s.address+'</span></div>';
+      inner += '<a class="contact-line" href="tel:'+s.phone.replace(/[^\d+]/g,'')+'">'+ICONS.phone+'<span>'+s.phone+'</span></a>';
+      inner += '<a class="contact-line" href="mailto:'+s.email1+'">'+ICONS.mail+'<span>'+s.email1+'</span></a>';
+      inner += '<a class="contact-line" href="mailto:'+s.email2+'">'+ICONS.mail+'<span>'+s.email2+'</span></a>';
+      contact.innerHTML = inner;
+      var mapLink = el('a',{class:'contact-map', href:mapsUrl(LOC.hotel), target:'_blank', rel:'noopener'});
+      mapLink.innerHTML = ICONS.pin + '<span>' + D.ui.locateHotel + '</span>';
+      contact.appendChild(mapLink);
+      body.appendChild(contact);
+    } else {
+      var ul = el('ul',{class:'highlights'});
+      s.items.forEach(function(it){ ul.appendChild(renderHighlightItem(it)); });
+      body.appendChild(ul);
+      var foot = el('div',{class:'foot-row'});
+      foot.appendChild(el('span',{class:'distance'}, '<b>'+D.ui.distance+'</b> · '+s.distance));
+      if(s.loc && LOC[s.loc]){
+        var cta = el('a',{class:'btn-map', href:mapsUrl(LOC[s.loc]), target:'_blank', rel:'noopener'});
+        cta.innerHTML = ICONS.pin + '<span>' + D.ui.directions + '</span>';
+        foot.appendChild(cta);
+      }
+      body.appendChild(foot);
+    }
 
-    },
+    card.appendChild(body);
+    return card;
+  }
+
+  function render(lang){
+    D = DATA[lang];
+    document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : lang);
+    document.documentElement.setAttribute('dir', D.dir);
+    document.getElementById('brandLabel').textContent = D.brand;
+    document.getElementById('heroEyebrow').textContent = D.hero.eyebrow;
+    document.getElementById('heroTitle').textContent = D.hero.title;
+    document.getElementById('heroSubtitle').textContent = D.hero.subtitle;
+    document.getElementById('footerText').textContent = D.ui.footer;
+
+    var nav = document.getElementById('quickNav');
+    nav.innerHTML = '';
+    var tocLbl = document.getElementById('tocLabel');
+
+    var main = document.getElementById('mainContent');
+    main.innerHTML = '';
+    D.sections.forEach(function(s, idx){
+      var a = el('a',{href:'#'+s.id}, s.title);
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var target = document.getElementById(s.id);
+        target.open = true;
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+      nav.appendChild(a);
+      var card = renderSection(s);
+      if(idx === 0) card.open = true;
+      main.appendChild(card);
+    });
+
+    document.querySelectorAll('.langswitch button').forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.langswitch button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-lang');
+      current = lang;
+      try{ window.localStorage.setItem('guideLang', lang); }catch(e){}
+      render(lang);
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+
+  render(current);
+})();
+</script>
+</body>
+</html>
