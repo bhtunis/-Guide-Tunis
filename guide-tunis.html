@@ -766,63 +766,43 @@
   }
 
   function render(lang){
-function render(lang){
-  D = DATA[lang];
+    D = DATA[lang];
+    document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : lang);
+    document.documentElement.setAttribute('dir', D.dir);
+    document.getElementById('brandLabel').textContent = D.brand;
+    document.getElementById('heroEyebrow').textContent = D.hero.eyebrow;
+    document.getElementById('heroTitle').textContent = D.hero.title;
+    document.getElementById('heroSubtitle').textContent = D.hero.subtitle;
+    document.getElementById('footerText').textContent = D.ui.footer;
 
-  document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : lang);
-  document.documentElement.setAttribute('dir', D.dir);
+    var nav = document.getElementById('quickNav');
+    nav.innerHTML = '';
+    var tocLbl = document.getElementById('tocLabel');
 
-  document.getElementById('brandLabel').textContent = D.brand;
-  document.getElementById('heroEyebrow').textContent = D.hero.eyebrow;
-  document.getElementById('heroTitle').textContent = D.hero.title;
-  document.getElementById('heroSubtitle').textContent = D.hero.subtitle;
-  document.getElementById('footerText').textContent = D.ui.footer;
-
-  var nav = document.getElementById('quickNav');
-  nav.innerHTML = '';
-
-  var main = document.getElementById('mainContent');
-  main.innerHTML = '';
-
-  D.sections.forEach(function(s, idx){
-
-    var icon = NAV_ICONS[s.id] || '';
-
-    var a = el('a',{href:'#'+s.id});
-    a.innerHTML = icon + '<span>' + s.title + '</span>';
-
-    a.addEventListener('click', function(ev){
-      ev.preventDefault();
-
-      var target = document.getElementById(s.id);
-
-      if(target){
+    var main = document.getElementById('mainContent');
+    main.innerHTML = '';
+    D.sections.forEach(function(s, idx){
+D.sections.forEach(function(s, idx){
+  var icon = NAV_ICONS[s.id] || NAV_ICONS.pratique;
+  var a = el('a',{href:'#'+s.id});
+  a.innerHTML = icon + '<span>' + s.title + '</span>';
+var a = el('a',{href:'#'+s.id}, icon + ' ' + s.title);
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var target = document.getElementById(s.id);
         target.open = true;
-        target.scrollIntoView({
-          behavior:'smooth',
-          block:'start'
-        });
-      }
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+      nav.appendChild(a);
+      var card = renderSection(s);
+      if(idx === 0) card.open = true;
+      main.appendChild(card);
     });
 
-    nav.appendChild(a);
-
-    var card = renderSection(s);
-
-    if(idx === 0){
-      card.open = true;
-    }
-
-    main.appendChild(card);
-  });
-
-  document.querySelectorAll('.langswitch button').forEach(function(btn){
-    btn.setAttribute(
-      'aria-pressed',
-      btn.getAttribute('data-lang') === lang ? 'true' : 'false'
-    );
-  });
-}
+    document.querySelectorAll('.langswitch button').forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
 
   document.querySelectorAll('.langswitch button').forEach(function(btn){
     btn.addEventListener('click', function(){
