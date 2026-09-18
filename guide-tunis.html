@@ -228,6 +228,30 @@ html[dir="rtl"] .hero h1{
     flex:0 0 auto; text-decoration:none; font-size:0.82rem; font-weight:600;
     color:var(--blue-deep); background:var(--paper); border:1px solid var(--line);
     padding:8px 14px; border-radius:999px; white-space:nowrap;
+  .quicknav a{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  text-decoration:none;
+  font-size:0.82rem;
+  font-weight:600;
+  color:var(--blue-deep);
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:8px 14px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+
+.quicknav a svg{
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+  color:#8f5220;
+  stroke:#8f5220;
+}  
+    
   }
 
   /* ---------- sections ---------- */
@@ -831,7 +855,8 @@ html[dir="rtl"] .hero h1{
     var main = document.getElementById('mainContent');
     main.innerHTML = '';
     D.sections.forEach(function(s, idx){
-      var a = el('a',{href:'#'+s.id}, s.title);
+var a = el('a',{href:'#'+s.id});
+a.innerHTML = (NAV_ICONS[s.id] || '') + '<span>' + s.title + '</span>';
       a.addEventListener('click', function(ev){
         ev.preventDefault();
         var target = document.getElementById(s.id);
