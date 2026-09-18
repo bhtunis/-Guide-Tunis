@@ -112,20 +112,61 @@
   .langswitch button[aria-pressed="true"]{ background:var(--blue-deep); color:var(--paper); }
 
   /* ---------- hero ---------- */
- /* ---------- hero ---------- */
- /* ---------- hero ---------- */
- /* ---------- hero ---------- */
+ 
+/* ---------- hero ---------- */
 .hero{
   position:relative;
-  background:
-    linear-gradient(rgba(45,25,15,0.35), rgba(45,25,15,0.35)),
-    url("images/hotel-tunis.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  color:#f4efe1;
+  min-height:520px;
   padding:38px 20px 64px;
+  color:#f4efe1;
   overflow:hidden;
+
+  background:
+    linear-gradient(rgba(45,25,15,0.30), rgba(45,25,15,0.30)),
+    url("images/hotel-tunis.jpg");
+
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+
+.hero .eyebrow{
+  font-size:0.78rem;
+  letter-spacing:0.04em;
+  color:#f4efe1;
+  margin:0 0 10px;
+}
+
+.hero h1{
+  font-size:2.35rem;
+  line-height:1.05;
+  margin:0 0 10px;
+  color:#fbf7ec;
+}
+
+html[dir="rtl"] .hero h1{
+  font-size:2.1rem;
+  line-height:1.3;
+}
+
+.hero p{
+  max-width:34ch;
+  font-size:0.98rem;
+  color:#f4efe1;
+  margin:0;
+}
+
+.hero .arches{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-2px;
+  width:100%;
+  height:46px;
+}
+
+.hero .arches path{
+  fill:var(--sand);
 }
 
 .hero .eyebrow{
