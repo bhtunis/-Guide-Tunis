@@ -6,355 +6,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive">
 <title>
   Business Hotel Tunis — Guide de Tunis</title>
-<link rel="preconnect" href="https://fonts.googleap
-  
-  is.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-
-.hero-logos{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  width:100%;
-  margin:0 0 20px;
-}
-
-.tourism-logo{
-  width:110px;
-  height:auto;
-  margin:0;
-  background:#fffaf0;
-  padding:6px;
-  border-radius:10px;
-  box-sizing:border-box;
-}
-
-.hotel-logo{
-  width:65px;
-  height:auto;
-  margin:0;
-}
-  :root{
-    --sand:#f2e9d6;
-    --sand-deep:#e8dbb9;
-    --paper:#fffcf5;
-    --ink:#241a12;
-    --ink-soft:#5c4936;
-    --blue-deep:#3b2415;
-    --blue:#8a5a34;
-    --blue-pale:#f1e6d3;
-    --clay:#c1752f;
-    --clay-deep:#8f5220;
-    --line: rgba(18,58,86,0.16);
-    --radius: 14px;
-    --shadow: 0 8px 24px rgba(18,42,58,0.08);
-    --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
-    --font-body:'Work Sans', -apple-system, 'Segoe UI', sans-serif;
-  }
-  :root[data-theme="dark"]{
-    --sand:#151d21;
-    --sand-deep:#1c262b;
-    --paper:#1a2226;
-    --ink:#eee7d6;
-    --ink-soft:#b8c2c6;
-    --blue-deep:#8fc2e4;
-    --blue:#6fa8cc;
-    --blue-pale:#22343d;
-    --clay:#e3855a;
-    --clay-deep:#f0a37c;
-    --line: rgba(238,231,214,0.14);
-    --shadow: 0 8px 24px rgba(0,0,0,0.35);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --sand:#151d21;
-      --sand-deep:#1c262b;
-      --paper:#1a2226;
-      --ink:#eee7d6;
-      --ink-soft:#b8c2c6;
-      --blue-deep:#8fc2e4;
-      --blue:#6fa8cc;
-      --blue-pale:#22343d;
-      --clay:#e3855a;
-      --clay-deep:#f0a37c;
-      --line: rgba(238,231,214,0.14);
-      --shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--sand);
-    color:var(--ink);
-    font-family:var(--font-body);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  html[dir="rtl"] body{ font-family:'Tajawal', var(--font-body); }
-  h1,h2,h3, .display{ font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; }
-  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .display{
-    font-family:'Aref Ruqaa', 'Tajawal', serif; font-weight:700; letter-spacing:0;
-  }
-  a{ color:inherit; }
-  button{ font-family:inherit; }
-
-  /* ---------- top bar ---------- */
-  .topbar{
-    position:sticky; top:0; z-index:40;
-    display:flex; align-items:center; justify-content:space-between;
-    gap:10px; padding:10px 16px;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-  }
-  .topbar .brand{ font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--blue-deep); white-space:nowrap; }
-  html[dir="rtl"] .topbar .brand{ font-family:'Aref Ruqaa', serif; font-size:1.05rem; }
-  .langswitch{ display:flex; gap:4px; background:var(--sand); border-radius:999px; padding:3px; }
-  .langswitch button{
-    border:none; background:transparent; padding:6px 10px; border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:var(--ink-soft); cursor:pointer;
-  }
-  .langswitch button[aria-pressed="true"]{ background:var(--blue-deep); color:var(--paper); }
-
-  /* ---------- hero ---------- */
- 
-/* ---------- hero ---------- */
-.hero{
-  position:relative;
-  min-height:520px;
-  padding:38px 20px 64px;
-  color:#f4efe1;
-  overflow:hidden;
-
-  background:
-    linear-gradient(rgba(45,25,15,0.30), rgba(45,25,15,0.30)),
-    url("images/hotel-tunis.jpg");
-
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-}
-
-.hero .eyebrow{
-  font-size:0.78rem;
-  letter-spacing:0.04em;
-  color:#f4efe1;
-  margin:0 0 10px;
-}
-
-.hero h1{
-  font-size:3rem;
-  line-height:1.05;
-  margin:0 0 12px;
-  color:#fbf7ec;
-}
-
-.hero p{
-  max-width:38ch;
-  font-size:1.25rem;
-  line-height:1.5;
-  color:#f4efe1;
-  margin:0;
-}
-
-.hero .eyebrow{
-  font-size:1rem;
-  letter-spacing:0.04em;
-  color:#f4efe1;
-  margin:0 0 12px;
-}
-
-.hero .arches{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-2px;
-  width:100%;
-  height:46px;
-}
-
-.hero .arches path{
-  fill:var(--sand);
-}
-
-.hero .eyebrow{
-  font-size:0.78rem;
-  letter-spacing:0.04em;
-  color:#a9c9dd;
-  margin:0 0 10px;
-}
-
-.hero h1{
-  font-size:2.35rem;
-  line-height:1.05;
-  margin:0 0 10px;
-  color:#fbf7ec;
-}
-
-html[dir="rtl"] .hero h1{
-  font-size:2.1rem;
-  line-height:1.3;
-}
-
-.hero p{
-  max-width:34ch;
-  font-size:0.98rem;
-  color:#d7e4ea;
-  margin:0;
-}
-
-.hero .arches{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-2px;
-  width:100%;
-  height:46px;
-}
-
-.hero .arches path{
-  fill:var(--sand);
-}
-  .hero .eyebrow{ font-size:0.78rem; letter-spacing:0.04em; color:#a9c9dd; margin:0 0 10px; }
-  .hero h1{ font-size:2.35rem; line-height:1.05; margin:0 0 10px; color:#fbf7ec; }
-  html[dir="rtl"] .hero h1{ font-size:2.1rem; line-height:1.3; }
-  .hero p{ max-width:34ch; font-size:0.98rem; color:#d7e4ea; margin:0; }
-  .hero .arches{ position:absolute; left:0; right:0; bottom:-2px; width:100%; height:46px; }
-  .hero .arches path{ fill:var(--sand); } CE LA CE QUE JAI
-  /* ---------- quick nav ---------- */
-  .quicknav{
-    display:flex; gap:8px; overflow-x:auto; padding:14px 16px 4px;
-    scrollbar-width:none;
-  }
-  .quicknav::-webkit-scrollbar{ display:none; }
-  .quicknav a{
-    flex:0 0 auto; text-decoration:none; font-size:0.82rem; font-weight:600;
-    color:var(--blue-deep); background:var(--paper); border:1px solid var(--line);
-    padding:8px 14px; border-radius:999px; white-space:nowrap;
-  }
-
-  /* ---------- sections ---------- */
-  main{ padding:6px 16px 40px; max-width:640px; margin:0 auto; }
-  details.card{
-    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
-    margin:14px 0; box-shadow:var(--shadow); overflow:hidden;
-  }
-  details.card > summary{
-    list-style:none; cursor:pointer; padding:16px 18px;
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
-  }
-  details.card > summary::-webkit-details-marker{ display:none; }
-  .summary-text .tag{
-    display:inline-block; font-size:0.72rem; font-weight:600; color:var(--clay-deep);
-    background:color-mix(in srgb, var(--clay) 14%, var(--paper)); padding:3px 9px; border-radius:999px; margin-bottom:6px;
-  }
-  .summary-text h2{ font-size:1.18rem; margin:0; color:var(--ink); }
-  .chev{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center; transition:transform .25s ease; color:var(--blue-deep); }
-  details[open] .chev{ transform:rotate(180deg); }
-  .card-body{ padding:0 18px 18px; }
-  .lead{ font-style:italic; color:var(--ink-soft); font-size:0.94rem; margin:0 0 14px; }
-  ul.highlights{ list-style:none; margin:0 0 14px; padding:0; display:flex; flex-direction:column; gap:10px; }
-  ul.highlights li{
-    display:flex; align-items:flex-start; gap:10px; font-size:0.93rem; padding:10px 12px;
-    background:var(--sand); border-radius:10px;
-  }
-  ul.highlights li .dot{ flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--clay); margin-top:7px; }
-  ul.highlights li .htext{ flex:1 1 auto; }
-  ul.highlights li .htext strong{ color:var(--blue-deep); }
-  .pin{
-    flex:0 0 auto; display:inline-flex; align-items:center; gap:4px; text-decoration:none;
-    font-size:0.74rem; font-weight:600; color:var(--blue); border:1px solid var(--line);
-    padding:5px 9px; border-radius:999px; white-space:nowrap; margin-top:1px;
-  }
-  .pin svg{ width:12px; height:12px; }
-  .foot-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    border-top:1px dashed var(--line); padding-top:12px; }
-  .distance{ font-size:0.82rem; color:var(--ink-soft); }
-  .distance b{ color:var(--ink); font-weight:600; }
-  .btn-map{
-    display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-weight:700;
-    font-size:0.85rem; color:#fff; background:var(--clay); padding:9px 16px; border-radius:999px;
-    box-shadow:0 4px 12px rgba(193,117,47,0.3);
-  }
-  .btn-map svg{ width:14px; height:14px; }
-
-  /* seasons */
-  .season-grid{ display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:14px; }
-  .season{ background:var(--sand); border-radius:10px; padding:14px; }
-  .season h3{ font-size:0.98rem; margin:0 0 4px; color:var(--blue-deep); }
-  .season .when{ font-size:0.76rem; color:var(--ink-soft); margin:0 0 10px; }
-  .season ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; }
-  .season li{ font-size:0.88rem; display:flex; gap:8px; }
-  .season li .dot{ flex:0 0 auto; width:6px; height:6px; margin-top:7px; border-radius:50%; background:var(--blue); }
-  .callout{ background:var(--blue-pale); border-radius:10px; padding:12px 14px; font-size:0.86rem; color:var(--ink); }
-  .callout b{ color:var(--blue-deep); }
-
-  /* around tunis list */
-  .dest-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
-  .dest{ display:flex; align-items:center; gap:12px; background:var(--sand); border-radius:10px; padding:12px; }
-  .dest .info{ flex:1 1 auto; }
-  .dest .info .name{ font-weight:700; font-size:0.92rem; color:var(--ink); }
-  .dest .info .desc{ font-size:0.82rem; color:var(--ink-soft); margin-top:2px; }
-  .dest .time{ flex:0 0 auto; font-size:0.72rem; font-weight:700; color:var(--clay-deep);
-    background:color-mix(in srgb, var(--clay) 14%, var(--paper)); padding:3px 8px; border-radius:999px; }
-  .note-box{ border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
-  .note-box .lbl{ font-size:0.72rem; font-weight:700; color:var(--clay-deep); margin-bottom:4px; }
-  .note-box p{ margin:4px 0 0; font-size:0.86rem; color:var(--ink-soft); }
-  .hotel-box{ display:flex; gap:12px; align-items:center; background:var(--blue-pale); border-radius:10px; padding:14px; }
-  .hotel-box .h-icon{ flex:0 0 auto; width:34px; height:34px; }
-  .hotel-box .h-text b{ display:block; font-size:0.88rem; color:var(--blue-deep); }
-  .hotel-box .h-text p{ margin:2px 0 0; font-size:0.82rem; color:var(--ink-soft); }
-
-  /* practical */
-  .practical-cols{ display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:16px; }
-  .col h3{ font-size:0.9rem; margin:0 0 10px; color:var(--blue-deep); }
-  .col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
-  .col li{ font-size:0.87rem; display:flex; gap:8px; border-inline-start:2px solid var(--line); padding-inline-start:9px; }
-
-  .contact-card{ background:var(--blue-deep); color:#f4efe1; border-radius:var(--radius); padding:20px; margin-top:6px; }
-  .contact-card p.thanks{ font-style:italic; font-size:0.9rem; color:#dbe6ea; margin:0 0 16px; }
-  .contact-line{ display:flex; align-items:center; gap:10px; text-decoration:none; color:#f4efe1;
-    padding:9px 0; border-top:1px solid rgba(244,239,225,0.14); font-size:0.88rem; }
-  .contact-line:first-of-type{ border-top:none; }
-  .contact-line svg{ flex:0 0 auto; width:17px; height:17px; opacity:0.85; }
-  .contact-map{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; background:var(--clay);
-    color:#fff; text-decoration:none; font-weight:700; font-size:0.85rem; padding:10px 18px; border-radius:999px; }
-
-  footer{ text-align:center; padding:20px; font-size:0.74rem; color:var(--ink-soft); }
-
-  /* toc heading */
-  .toc-title{ font-size:0.78rem; font-weight:700; letter-spacing:0.02em; color:var(--ink-soft); padding:14px 16px 0; }
-
-  @media (min-width:560px){
-    .season-grid{ grid-template-columns:1fr 1fr; }
-    .practical-cols{ grid-template-columns:1fr 1fr; }
-  } 
-
-
-  /* ===== TEXTE HERO AGRANDI ===== */
-
-.hero .eyebrow{
-  font-size: 1rem;
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-
-.hero h1{
-  font-size: 3rem;
-  line-height: 1.05;
-  margin-bottom: 12px;
-}
-
-.hero p{
-  max-width: 38ch;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-html[dir="rtl"] .hero h1{
+@@ -357,540 +358,688 @@
   font-size: 2.7rem;
   line-height: 1.3;
 } 
@@ -505,84 +157,6 @@ svg {
   .dest {
     align-items: flex-start;
   }
-} 
-
-  /* =================================
-   BUSINESS HOTEL SFAX
-   ================================= */
-
-.sfax-hotel {
-  overflow: hidden;
-  margin-top: 18px;
-  padding: 0 !important;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.sfax-hotel-image {
-  display: block;
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-}
-
-.sfax-hotel-content {
-  padding: 18px;
-}
-
-.sfax-hotel-label {
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-  color: var(--clay-deep);
-  margin-bottom: 5px;
-}
-
-.sfax-hotel-content h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-  color: var(--blue-deep);
-}
-
-.sfax-hotel-content p {
-  margin: 0 0 12px;
-  line-height: 1.5;
-  font-size: .9rem;
-  color: var(--ink-soft);
-}
-
-.sfax-hotel-address {
-  font-size: .85rem;
-  margin-bottom: 14px;
-  color: var(--ink);
-}
-
-.sfax-hotel-map {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 11px 16px;
-  border-radius: 999px;
-  background: var(--clay);
-  color: white;
-  text-decoration: none;
-  font-size: .85rem;
-  font-weight: 700;
-}
-
-@media (max-width:559px) {
-
-  .sfax-hotel-image {
-    height: 180px;
-  }
-
-  .sfax-hotel-content {
-    padding: 15px;
-  }
 }
 </style>
 </head>
@@ -731,15 +305,8 @@ svg {
         ],
         transferLbl:"Transferts & chauffeur privé",
         transferText:"Notre hôtel organise vos transferts sur mesure ! Un chauffeur professionnel vous accompagne tout au long de votre journée, vous guide et reste à votre entière disposition pour l'ensemble de vos déplacements à Tunis et dans ses environs, ainsi que vers Sfax et les différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
-hotelBox:{
-  title:"Business Hotel Sfax",
-  text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis.",
-  image:"images/business-hotel-sfax.jpg",
-  maps:"https://www.google.com/maps/search/?api=1&query=PQW7%2B234%2C%203002%20Av.%205%20Ao%C3%BBt%2C%20Sfax%203000"
-},
-      {id:"pratique", tag:"
-        
-    À savoir avant de partir", title:"Informations pratiques",
+        hotelBox:{ title:"Business Hotel Sfax", text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis." }},
+      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
         lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.", special:"practical",
         getAround:["TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
           "Taxi — nombreux et abordables, privilégiez le compteur.",
@@ -837,12 +404,8 @@ hotelBox:{
         ],
         transferLbl:"Transfers & private driver",
         transferText:"Our hotel arranges tailor-made transfers! A professional driver accompanies you throughout your day, guides you, and remains fully at your disposal for all your travel around Tunis and its surroundings, as well as to Sfax and the different regions of southern Tunisia. Comfort, flexibility and peace of mind: we take care of getting you there.",
-hotelBox:{
-  title:"Business Hotel Sfax",
-  text:"Extending your trip south? Our second address, Business Hotel Sfax, welcomes you with the same spirit and level of comfort. ~2h30 drive from Tunis.",
-  image:"images/business-hotel-sfax.jpg",
-  maps:"https://www.google.com/maps/search/?api=1&query=PQW7%2B234%2C%203002%20Av.%205%20Ao%C3%BBt%2C%20Sfax%203000"
-}},      {id:"pratique", tag:"Before you head out", title:"Practical Information",
+        hotelBox:{ title:"Business Hotel Sfax", text:"Extending your trip south? Our second address, Business Hotel Sfax, welcomes you with the same spirit and level of comfort. ~2h30 drive from Tunis." }},
+      {id:"pratique", tag:"Before you head out", title:"Practical Information",
         lead:"Our reception team is available 24/7 for any question, taxi booking or excursion.", special:"practical",
         getAround:["TGM — links Tunis Marine to Carthage, Sidi Bou Said and La Marsa.",
           "Taxi — plentiful and affordable; always ask for the meter.",
@@ -940,12 +503,8 @@ hotelBox:{
         ],
         transferLbl:"التنقلات وسائق خاص",
         transferText:"فندقنا ينظم لكم تنقلاتكم حسب الطلب! يرافقكم سائق محترف طوال يومكم، يرشدكم ويبقى تحت تصرفكم الكامل لجميع تنقلاتكم في تونس وضواحيها، وكذلك نحو صفاقس ومختلف مناطق الجنوب التونسي. راحة، مرونة وطمأنينة: نحن نتكفل بتنقلاتكم.",
-hotelBox:{
-  title:"بيزنس هوتيل صفاقس",
-  text:"هل تمددون إقامتكم نحو الجنوب؟ عنواننا الثاني، بيزنس هوتيل صفاقس، يستقبلكم بنفس الروح ونفس مستوى الراحة. ~ساعتان ونصف بالطريق من تونس.",
-  image:"images/business-hotel-sfax.jpg",
-  maps:"https://www.google.com/maps/search/?api=1&query=PQW7%2B234%2C%203002%20Av.%205%20Ao%C3%BBt%2C%20Sfax%203000"
-}},      {id:"pratique", tag:"معلومات مفيدة قبل المغادرة", title:"معلومات عملية",
+        hotelBox:{ title:"بيزنس هوتيل صفاقس", text:"هل تمددون إقامتكم نحو الجنوب؟ عنواننا الثاني، بيزنس هوتيل صفاقس، يستقبلكم بنفس الروح ونفس مستوى الراحة. ~ساعتان ونصف بالطريق من تونس." }},
+      {id:"pratique", tag:"معلومات مفيدة قبل المغادرة", title:"معلومات عملية",
         lead:"فريق الاستقبال لدينا في خدمتكم على مدار الساعة لأي استفسار أو حجز سيارة أجرة أو رحلة.", special:"practical",
         getAround:["الـ TGM — يربط تونس البحر بقرطاج وسيدي بوسعيد والمرسى.",
           "سيارات الأجرة — كثيرة وبأسعار معقولة، يُفضّل استعمال العدّاد.",
@@ -1035,42 +594,12 @@ hotelBox:{
       var note = el('div',{class:'note-box'});
       note.innerHTML = '<div class="lbl">'+s.transferLbl+'</div><p>'+s.transferText+'</p>';
       body.appendChild(note);
-      var hbox = el('div',{class:'hotel-box sfax-hotel'});
-
-hbox.innerHTML = `
-  <img 
-    src="${s.hotelBox.image}" 
-    alt="${s.hotelBox.title}"
-    class="sfax-hotel-image"
-  >
-
-  <div class="sfax-hotel-content">
-
-    <div class="sfax-hotel-label">
-      BUSINESS HOTELS
-    </div>
-
-    <h3>${s.hotelBox.title}</h3>
-
-    <p>${s.hotelBox.text}</p>
-
-    <div class="sfax-hotel-address">
-      📍 ${s.hotelBox.address}
-    </div>
-
-    <a 
-      href="${s.hotelBox.maps}"
-      target="_blank"
-      rel="noopener"
-      class="sfax-hotel-map"
-    >
-      📍 Voir sur Google Maps
-    </a>
-
-  </div>
-`;
-
-body.appendChild(hbox);
+      var hbox = el('div',{class:'hotel-box'});
+      var hicon = el('div',{class:'h-icon'}); hicon.innerHTML = ICONS.hotel;
+      var htext = el('div',{class:'h-text'});
+      htext.innerHTML = '<b>'+s.hotelBox.title+'</b><p>'+s.hotelBox.text+'</p>';
+      hbox.appendChild(hicon); hbox.appendChild(htext);
+      body.appendChild(hbox);
     } else if(s.special === 'practical'){
       var cols = el('div',{class:'practical-cols'});
       var c1 = el('div',{class:'col'});
