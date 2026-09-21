@@ -6,7 +6,457 @@
   <meta name="robots" content="noindex, nofollow, noarchive">
 <title>
   Business Hotel Tunis — Guide de Tunis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+/* =========================
+   VARIABLES & BASE
+   (CSS de base reconstitué)
+   ========================= */
+:root {
+  --navy: #0e3b5e;
+  --blue: #1c6ea4;
+  --blue-soft: #e3eef6;
+  --gold: #b8893b;
+  --gold-soft: #f4ead6;
+  --bg: #f6f2ea;
+  --card: #ffffff;
+  --ink: #1d2b36;
+  --muted: #5d6b77;
+  --line: #e4ddd0;
+  --radius: 16px;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+html[dir="rtl"] body {
+  font-family: 'Tajawal', var(--font-body);
+}
+
+a { color: inherit; }
+
+/* Barre du haut */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: var(--navy);
+  color: #fff;
+}
+.topbar .brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.langswitch {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.12);
+  padding: 3px;
+  border-radius: 999px;
+}
+.langswitch button {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.langswitch button[aria-pressed="true"] {
+  background: #fff;
+  color: var(--navy);
+}
+.langswitch button:focus-visible,
+.quicknav a:focus-visible,
+details.card > summary:focus-visible,
+.btn-map:focus-visible,
+.pin:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(184,137,59,0.35), transparent 45%),
+    linear-gradient(170deg, #1c6ea4 0%, #0e3b5e 70%);
+}
+.hero-logos img {
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px;
+  object-fit: contain;
+}
+.hero .eyebrow {
+  margin: 48px 0 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f0d9a8;
+}
+.hero h1.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+html[dir="rtl"] .hero h1.display { font-family: 'Tajawal', var(--font-display); }
+.hero p { margin: 0; color: rgba(255,255,255,0.9); }
+.hero .arches {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 46px;
+  fill: var(--bg);
+  display: block;
+}
+
+/* Navigation rapide */
+.quicknav {
+  position: sticky;
+  top: 48px;
+  z-index: 40;
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  scrollbar-width: none;
+}
+.quicknav::-webkit-scrollbar { display: none; }
+.quicknav a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.quicknav a:hover { background: var(--blue-soft); }
+
+/* Cartes repliables */
+details.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin: 14px 0;
+  overflow: hidden;
+  scroll-margin-top: 110px;
+}
+details.card > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+}
+details.card > summary::-webkit-details-marker { display: none; }
+.summary-text .tag {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.summary-text h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--navy);
+}
+html[dir="rtl"] .summary-text h2 { font-family: 'Tajawal', var(--font-display); font-size: 1.3rem; }
+.chev {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: var(--blue);
+  transition: transform 0.25s ease;
+}
+.chev svg { width: 18px; height: 18px; }
+details[open] > summary .chev { transform: rotate(180deg); }
+.card-body { padding: 0 18px 20px; }
+.lead {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+/* Listes de points forts */
+ul.highlights, .season ul, .practical-cols ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+ul.highlights li:first-child { border-top: 0; }
+.dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.6em;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.htext { flex: 1; }
+.htext strong { color: var(--navy); }
+
+/* Bouton "Voir" (épingle) */
+.pin {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.pin svg { width: 14px; height: 14px; }
+.pin:hover { background: #d3e4f0; }
+
+/* Ligne distance + itinéraire */
+.foot-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.distance { font-size: 0.85rem; color: var(--muted); }
+.distance b { color: var(--navy); }
+.btn-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  padding: 9px 16px;
+  border-radius: 999px;
+}
+.btn-map svg { width: 16px; height: 16px; }
+.btn-map:hover { background: var(--navy); }
+
+/* Saisons */
+.season-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.season {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fbf9f4;
+}
+.season h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--navy);
+}
+.season .when {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.season li {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+.callout {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--gold-soft);
+  border-inline-start: 4px solid var(--gold);
+  font-size: 0.9rem;
+}
+
+/* Destinations autour de Tunis */
+.dest-list { display: flex; flex-direction: column; }
+.dest {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.dest:first-child { border-top: 0; }
+.dest .info { flex: 1; min-width: 0; }
+.dest .name { font-weight: 700; color: var(--navy); }
+.dest .desc { font-size: 0.86rem; color: var(--muted); }
+.dest .time {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.note-box {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--blue-soft);
+}
+.note-box .lbl {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.note-box p { margin: 0; font-size: 0.9rem; }
+.hotel-box {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+}
+.hotel-box .h-icon {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.14);
+}
+.hotel-box .h-icon svg { width: 22px; height: 22px; }
+.hotel-box b { font-family: var(--font-display); font-size: 1.15rem; }
+.hotel-box p { margin: 2px 0 0; font-size: 0.88rem; color: rgba(255,255,255,0.88); }
+
+/* Infos pratiques */
+.practical-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.practical-cols .col {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fbf9f4;
+}
+.practical-cols h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--navy);
+}
+.practical-cols li {
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+.contact-card {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+}
+.contact-card .thanks { margin: 0 0 12px; font-size: 0.92rem; color: rgba(255,255,255,0.9); }
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: 0.9rem;
+  color: #fff;
+  text-decoration: none;
+  word-break: break-word;
+}
+.contact-line svg { flex: 0 0 auto; width: 18px; height: 18px; color: #f0d9a8; }
+.contact-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.contact-map svg { width: 16px; height: 16px; }
+
+/* Pied de page */
+footer {
+  padding: 26px 20px 40px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Animation d'ouverture des cartes */
+@media (prefers-reduced-motion: no-preference) {
+  details.card[open] .card-body { animation: cardIn 0.25s ease; }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+}
+
+@media (min-width: 560px) {
+  .season-grid, .practical-cols { grid-template-columns: 1fr 1fr; }
+}
+
  .hero h1 {
   font-size: 2.7rem;
   line-height: 1.3;
