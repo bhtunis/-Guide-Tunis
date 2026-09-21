@@ -505,6 +505,84 @@ svg {
   .dest {
     align-items: flex-start;
   }
+} 
+
+  /* =================================
+   BUSINESS HOTEL SFAX
+   ================================= */
+
+.sfax-hotel {
+  overflow: hidden;
+  margin-top: 18px;
+  padding: 0 !important;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sfax-hotel-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.sfax-hotel-content {
+  padding: 18px;
+}
+
+.sfax-hotel-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--clay-deep);
+  margin-bottom: 5px;
+}
+
+.sfax-hotel-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: var(--blue-deep);
+}
+
+.sfax-hotel-content p {
+  margin: 0 0 12px;
+  line-height: 1.5;
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+
+.sfax-hotel-address {
+  font-size: .85rem;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+
+.sfax-hotel-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 16px;
+  border-radius: 999px;
+  background: var(--clay);
+  color: white;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+@media (max-width:559px) {
+
+  .sfax-hotel-image {
+    height: 180px;
+  }
+
+  .sfax-hotel-content {
+    padding: 15px;
+  }
 }
 </style>
 </head>
@@ -653,7 +731,13 @@ svg {
         ],
         transferLbl:"Transferts & chauffeur privé",
         transferText:"Notre hôtel organise vos transferts sur mesure ! Un chauffeur professionnel vous accompagne tout au long de votre journée, vous guide et reste à votre entière disposition pour l'ensemble de vos déplacements à Tunis et dans ses environs, ainsi que vers Sfax et les différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
-        hotelBox:{ title:"Business Hotel Sfax", text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis." }},
+       hotelBox:{
+  title:"Business Hotel Sfax",
+  text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis.",
+  image:"images/business-hotel-sfax.jpg",
+  address:"Sfax, Tunisie",
+  maps:"https://www.google.com/maps/search/?api=1&query=Business%20Hotel%20Sfax"
+}
       {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
         lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.", special:"practical",
         getAround:["TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
@@ -942,12 +1026,42 @@ svg {
       var note = el('div',{class:'note-box'});
       note.innerHTML = '<div class="lbl">'+s.transferLbl+'</div><p>'+s.transferText+'</p>';
       body.appendChild(note);
-      var hbox = el('div',{class:'hotel-box'});
-      var hicon = el('div',{class:'h-icon'}); hicon.innerHTML = ICONS.hotel;
-      var htext = el('div',{class:'h-text'});
-      htext.innerHTML = '<b>'+s.hotelBox.title+'</b><p>'+s.hotelBox.text+'</p>';
-      hbox.appendChild(hicon); hbox.appendChild(htext);
-      body.appendChild(hbox);
+      var hbox = el('div',{class:'hotel-box sfax-hotel'});
+
+hbox.innerHTML = `
+  <img 
+    src="${s.hotelBox.image}" 
+    alt="${s.hotelBox.title}"
+    class="sfax-hotel-image"
+  >
+
+  <div class="sfax-hotel-content">
+
+    <div class="sfax-hotel-label">
+      BUSINESS HOTELS
+    </div>
+
+    <h3>${s.hotelBox.title}</h3>
+
+    <p>${s.hotelBox.text}</p>
+
+    <div class="sfax-hotel-address">
+      📍 ${s.hotelBox.address}
+    </div>
+
+    <a 
+      href="${s.hotelBox.maps}"
+      target="_blank"
+      rel="noopener"
+      class="sfax-hotel-map"
+    >
+      📍 Voir sur Google Maps
+    </a>
+
+  </div>
+`;
+
+body.appendChild(hbox);
     } else if(s.special === 'practical'){
       var cols = el('div',{class:'practical-cols'});
       var c1 = el('div',{class:'col'});
