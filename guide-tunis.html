@@ -63,7 +63,11 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   padding: 10px 18px;
-  background: var(--navy);
+background:
+  linear-gradient(rgba(60, 35, 20, 0.45), rgba(60, 35, 20, 0.45)),
+  url("images/hotel-tunis.jpg");
+background-size: cover;
+background-position: center;;
   color: #fff;
 }
 .topbar .brand {
@@ -105,12 +109,20 @@ details.card > summary:focus-visible,
 
 /* Hero */
 .hero {
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  background:
-    radial-gradient(circle at 85% 10%, rgba(184,137,59,0.35), transparent 45%),
-    linear-gradient(170deg, #1c6ea4 0%, #0e3b5e 70%);
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding:80px 20px 100px;
+  color:#fff;
+  overflow:hidden;
+
+  background-image:
+    linear-gradient(rgba(45,25,15,0.35), rgba(45,25,15,0.35)),
+    url("images/hotel-tunis.jpg");
+
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
 }
 .hero-logos img {
   background: #fff;
