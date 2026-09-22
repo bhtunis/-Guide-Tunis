@@ -848,8 +848,13 @@ svg {
         ],
         transferLbl:"Transferts & chauffeur privé",
         transferText:"Notre hôtel organise vos transferts sur mesure ! Un chauffeur professionnel vous accompagne tout au long de votre journée, vous guide et reste à votre entière disposition pour l'ensemble de vos déplacements à Tunis et dans ses environs, ainsi que vers Sfax et les différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
-        hotelBox:{ title:"Business Hotel Sfax", text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis." }},
-      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
+hotelBox:{
+  title:"Business Hotel Sfax",
+  text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis.",
+  image:"images/business-hotel-sfax.jpg",
+  address:"3002 Avenue du 5 Août, Sfax 3000",
+  maps:"https://maps.app.goo.gl/tHLSdFFf3d6fsBcH8"
+},      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
         lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.", special:"practical",
         getAround:["TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
           "Taxi — nombreux et abordables, privilégiez le compteur.",
@@ -1137,12 +1142,42 @@ svg {
       var note = el('div',{class:'note-box'});
       note.innerHTML = '<div class="lbl">'+s.transferLbl+'</div><p>'+s.transferText+'</p>';
       body.appendChild(note);
-      var hbox = el('div',{class:'hotel-box'});
-      var hicon = el('div',{class:'h-icon'}); hicon.innerHTML = ICONS.hotel;
-      var htext = el('div',{class:'h-text'});
-      htext.innerHTML = '<b>'+s.hotelBox.title+'</b><p>'+s.hotelBox.text+'</p>';
-      hbox.appendChild(hicon); hbox.appendChild(htext);
-      body.appendChild(hbox);
+  var hbox = el('div',{class:'hotel-box sfax-hotel'});
+
+hbox.innerHTML = `
+  <img
+    src="${s.hotelBox.image}"
+    alt="${s.hotelBox.title}"
+    class="sfax-hotel-image"
+  >
+
+  <div class="sfax-hotel-content">
+
+    <div class="sfax-hotel-label">
+      BUSINESS HOTELS
+    </div>
+
+    <h3>${s.hotelBox.title}</h3>
+
+    <p>${s.hotelBox.text}</p>
+
+    <div class="sfax-hotel-address">
+      📍 ${s.hotelBox.address}
+    </div>
+
+    <a
+      href="${s.hotelBox.maps}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="sfax-hotel-map"
+    >
+      📍 Voir la localisation sur Google Maps
+    </a>
+
+  </div>
+`;
+
+body.appendChild(hbox);
     } else if(s.special === 'practical'){
       var cols = el('div',{class:'practical-cols'});
       var c1 = el('div',{class:'col'});
