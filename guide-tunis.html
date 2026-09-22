@@ -700,6 +700,72 @@ svg {
 .langswitch button[aria-pressed="true"] {
   background: #ffffff !important;
   color: #5a3825 !important;
+}  
+  /* ===== BUSINESS HOTEL SFAX ===== */
+
+.sfax-hotel {
+  display: block !important;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #5a3825;
+  border-radius: 18px;
+  color: #fff;
+}
+
+.sfax-hotel-image {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.sfax-hotel-content {
+  padding: 24px;
+}
+
+.sfax-hotel-label {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #f0d9a8;
+}
+
+.sfax-hotel-content h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.sfax-hotel-content p {
+  margin: 0 0 15px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.sfax-hotel-address {
+  margin-bottom: 16px;
+  font-size: 0.92rem;
+  color: #fff;
+}
+
+.sfax-hotel-map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 13px 18px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: #fff;
+  color: #5a3825;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 </style>
 </head>
@@ -849,12 +915,14 @@ svg {
         transferLbl:"Transferts & chauffeur privé",
         transferText:"Notre hôtel organise vos transferts sur mesure ! Un chauffeur professionnel vous accompagne tout au long de votre journée, vous guide et reste à votre entière disposition pour l'ensemble de vos déplacements à Tunis et dans ses environs, ainsi que vers Sfax et les différentes régions du Sud tunisien. Confort, flexibilité et sérénité : nous nous occupons de vos déplacements.",
 hotelBox:{
+
   title:"Business Hotel Sfax",
   text:"Vous prolongez votre séjour vers le sud ? Notre seconde adresse, Business Hotel Sfax, vous accueille dans le même esprit et le même niveau de confort. ~2h30 de route depuis Tunis.",
   image:"images/business-hotel-sfax.jpg",
   address:"3002 Avenue du 5 Août, Sfax 3000",
   maps:"https://maps.app.goo.gl/tHLSdFFf3d6fsBcH8"
-},      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
+},
+      {id:"pratique", tag:"À savoir avant de partir", title:"Informations pratiques",
         lead:"Notre équipe de réception reste à votre disposition 24h/24 pour toute question, réservation de taxi ou d'excursion.", special:"practical",
         getAround:["TGM — relie Tunis Marine à Carthage, Sidi Bou Saïd et La Marsa.",
           "Taxi — nombreux et abordables, privilégiez le compteur.",
@@ -952,8 +1020,14 @@ hotelBox:{
         ],
         transferLbl:"Transfers & private driver",
         transferText:"Our hotel arranges tailor-made transfers! A professional driver accompanies you throughout your day, guides you, and remains fully at your disposal for all your travel around Tunis and its surroundings, as well as to Sfax and the different regions of southern Tunisia. Comfort, flexibility and peace of mind: we take care of getting you there.",
-        hotelBox:{ title:"Business Hotel Sfax", text:"Extending your trip south? Our second address, Business Hotel Sfax, welcomes you with the same spirit and level of comfort. ~2h30 drive from Tunis." }},
-      {id:"pratique", tag:"Before you head out", title:"Practical Information",
+ hotelBox:{
+  title:"Business Hotel Sfax",
+  text:"Extending your trip south? Our second address, Business Hotel Sfax, welcomes you with the same spirit and level of comfort. ~2h30 drive from Tunis.",
+  image:"images/business-hotel-sfax.jpg",
+  address:"3002 Avenue du 5 Août, Sfax 3000",
+  maps:"https://maps.app.goo.gl/tHLSdFFf3d6fsBcH8"
+}},
+      {id:"pratique", tag:"Practical information", title:"Practical Information",
         lead:"Our reception team is available 24/7 for any question, taxi booking or excursion.", special:"practical",
         getAround:["TGM — links Tunis Marine to Carthage, Sidi Bou Said and La Marsa.",
           "Taxi — plentiful and affordable; always ask for the meter.",
@@ -1051,8 +1125,13 @@ hotelBox:{
         ],
         transferLbl:"التنقلات وسائق خاص",
         transferText:"فندقنا ينظم لكم تنقلاتكم حسب الطلب! يرافقكم سائق محترف طوال يومكم، يرشدكم ويبقى تحت تصرفكم الكامل لجميع تنقلاتكم في تونس وضواحيها، وكذلك نحو صفاقس ومختلف مناطق الجنوب التونسي. راحة، مرونة وطمأنينة: نحن نتكفل بتنقلاتكم.",
-        hotelBox:{ title:"بيزنس هوتيل صفاقس", text:"هل تمددون إقامتكم نحو الجنوب؟ عنواننا الثاني، بيزنس هوتيل صفاقس، يستقبلكم بنفس الروح ونفس مستوى الراحة. ~ساعتان ونصف بالطريق من تونس." }},
-      {id:"pratique", tag:"معلومات مفيدة قبل المغادرة", title:"معلومات عملية",
+hotelBox:{
+  title:"بيزنس هوتيل صفاقس",
+  text:"هل تمددون إقامتكم نحو الجنوب؟ عنواننا الثاني، بيزنس هوتيل صفاقس، يستقبلكم بنفس الروح ونفس مستوى الراحة. ~ساعتان ونصف بالطريق من تونس.",
+  image:"images/business-hotel-sfax.jpg",
+  address:"3002 Avenue du 5 Août, Sfax 3000",
+  maps:"https://maps.app.goo.gl/tHLSdFFf3d6fsBcH8"
+}},      {id:"pratique", tag:"معلومات مفيدة قبل المغادرة", title:"معلومات عملية",
         lead:"فريق الاستقبال لدينا في خدمتكم على مدار الساعة لأي استفسار أو حجز سيارة أجرة أو رحلة.", special:"practical",
         getAround:["الـ TGM — يربط تونس البحر بقرطاج وسيدي بوسعيد والمرسى.",
           "سيارات الأجرة — كثيرة وبأسعار معقولة، يُفضّل استعمال العدّاد.",
