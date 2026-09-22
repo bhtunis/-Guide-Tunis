@@ -128,10 +128,37 @@ details.card > summary:focus-visible,
   background-repeat:no-repeat;
 }
 .hero-logos img {
-  background: #fff;
   border-radius: 12px;
-  padding: 6px;
   object-fit: contain;
+}
+
+.hero-logos .hotel-logo {
+  width: 120px;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.35));
+}
+
+.hero-logos .tourism-logo {
+  width: 100px;
+  height: auto;
+  padding: 6px;
+  background: #fff;
+}
+.hero-logos .hotel-logo {
+  width: 120px;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.35));
+}
+
+.hero-logos .tourism-logo {
+  width: 100px;
+  height: auto;
+  padding: 6px;
+  background: #fff;
 }
 .hero .eyebrow {
   margin: 48px 0 6px;
@@ -628,6 +655,14 @@ svg {
   .dest {
     align-items: flex-start;
   }
+}
+  /* Barre supérieure : fond uni */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fffaf3 !important;
+  border-bottom: 1px solid #dfd0be;
 }
 </style>
 </head>
